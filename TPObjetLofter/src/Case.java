@@ -12,6 +12,9 @@ import java.util.LinkedList;
 public class Case {
 	
 	protected LinkedList<Nourriture> reserves;
+	protected int positionx;
+	protected int positiony;
+	
 	
 	public Case(){
 		
@@ -27,4 +30,18 @@ public class Case {
 		this.reserves.remove(nourritureConsomee);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getpositionx(){
+		return this.positionx;
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	public int getpositiony(){
+		return this.positiony;
+	}
 }

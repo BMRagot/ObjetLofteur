@@ -9,4 +9,6 @@
  */
 public interface Commestible {
 	public void donneEnergie(Neuneu lofteur);
+
+	public int getEnergie();
 }

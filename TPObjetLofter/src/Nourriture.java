@@ -18,8 +18,10 @@ public class Nourriture implements Commestible{
 
 	@Override
 	public void donneEnergie(Neuneu lofteur) {
-		// TODO Auto-generated method stub
+		lofteur.setEnergie(lofteur.getEnergie+ this.energie);
+		//this.energie=0; peut etre 
 		
 	}
+	
 	
 }
