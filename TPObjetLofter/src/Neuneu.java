@@ -25,4 +25,37 @@ public abstract class Neuneu {
     
     //Méthodes
 
+    public int getEnergie() {
+        return energie;
+    }
+
+    public void setEnergie(int energie) {
+        this.energie = energie;
+    }
+
+    public Loft getEnvironnement() {
+        return environnement;
+    }
+
+    public void setEnvironnement(Loft environnement) {
+        this.environnement = environnement;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Case getPosition() {
+        return position;
+    }
+
+    public void setPosition(Case position) {
+        this.position = position;
+    }
+    
+
 }
