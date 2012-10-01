@@ -16,8 +16,11 @@ public abstract class Neuneu {
     protected Loft environnement;
     
     //Constructeur
-    public Neuneu(String nom){
+    public Neuneu(String nom, Case position){
+        this.environnement=environnement;
         this.nom=new String(nom);
+        this.position=position;
+        this.energie=100;
     }
     
     //Méthodes
