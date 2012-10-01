@@ -57,5 +57,14 @@ public abstract class Neuneu {
         this.position = position;
     }
     
+    public abstract void seDeplacer();
+    
+    public abstract void manger(Commestible nourriture);
+    
+    public Neuneu seReproduire(Neuneu partenaire){
+        this.setEnergie(this.getEnergie()-50);
+        partenaire.setEnergie(partenaire.getEnergie()-50);
+        //...
+    }
 
 }
