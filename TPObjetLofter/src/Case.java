@@ -16,12 +16,27 @@ public class Case {
 	protected int positiony;
 	
 	
-	public Case(){
-		
+	public Case(int x, int y){
+		this.positionx=x;
+		this.positiony=y;
 	}
-	public Case(LinkedList<Nourriture> reserves){
+	public Case(int x ,int y, LinkedList<Nourriture> reserves){
 		this.reserves=new LinkedList<Nourriture>();
 		this.reserves=reserves;
+		this.positionx=x;
+		this.positiony=y;
+	}
+	/**
+	 * @return the reserves
+	 */
+	public LinkedList<Nourriture> getReserves() {
+		return reserves;
+	}
+	/**
+	 * @param reserves the reserves to set
+	 */
+	public void setReserves(LinkedList<Nourriture> reserves) {
+		this.reserves = reserves;
 	}
 	public void ajouterNourriture(Nourriture nourritureAjoutee){
 		this.reserves.add(nourritureAjoutee);

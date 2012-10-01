@@ -16,7 +16,7 @@ public class Lapin extends Neuneu{
 	 * 
 	 */
 	public void seDeplacer(){
-		
+		for (int i=)
 	}
 	/**
 	 * 
