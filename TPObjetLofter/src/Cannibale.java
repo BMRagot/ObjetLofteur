@@ -8,5 +8,8 @@
  *
  */
 public class Cannibale extends Vorace{
-
+	
+	public Cannibale( String nom){
+		super(nom);
+	}
 }

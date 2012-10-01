@@ -9,4 +9,8 @@
  */
 public class Erratique extends Neuneu{
 
+	public Erratique(String nom) {
+		super(nom);
+}
+
 }
