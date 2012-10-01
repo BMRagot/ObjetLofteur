@@ -8,5 +8,18 @@
  *
  */
 public abstract class Neuneu {
+    
+    //Attributs
+    protected String nom;
+    protected Case position;
+    protected int energie;
+    protected Loft environnement;
+    
+    //Constructeur
+    public Neuneu(String nom){
+        this.nom=new String(nom);
+    }
+    
+    //Méthodes
 
 }
