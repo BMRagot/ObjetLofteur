@@ -19,7 +19,7 @@ public class Loft {
 	 * Constructor
 	 */
 	public Loft(){
-		//a completer
+		//TODO:a completer
 	}
 	
 	/**

@@ -41,22 +41,33 @@ public class Case {
 	public void ajouterNourriture(Nourriture nourritureAjoutee){
 		this.reserves.add(nourritureAjoutee);
 	}
-	public void supprimerNourriture(Nourriture nourritureConsomee){
-		this.reserves.remove(nourritureConsomee);
+	public void supprimerNourriture(Nourriture nourriture){
+		this.reserves.remove(nourriture);
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return the positionx
 	 */
-	public int getpositionx(){
-		return this.positionx;
+	public int getPositionx() {
+		return positionx;
 	}
 	/**
-	 * 
-	 * @return
+	 * @param positionx the positionx to set
 	 */
-	public int getpositiony(){
-		return this.positiony;
+	public void setPositionx(int positionx) {
+		this.positionx = positionx;
 	}
+	/**
+	 * @return the positiony
+	 */
+	public int getPositiony() {
+		return positiony;
+	}
+	/**
+	 * @param positiony the positiony to set
+	 */
+	public void setPositiony(int positiony) {
+		this.positiony = positiony;
+	}
+	
 }

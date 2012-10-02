@@ -15,7 +15,12 @@ public abstract class Neuneu {
     protected int energie;
     protected Loft environnement;
     
-    //Constructeur
+    /**
+     * Constructor
+     * @param nom
+     * @param position
+     * @param environnement
+     */
     public Neuneu(String nom, Case position, Loft environnement){
         this.environnement=environnement;
         this.nom=new String(nom);
@@ -62,9 +67,22 @@ public abstract class Neuneu {
     public abstract void manger(Commestible nourriture);
     
     public Neuneu seReproduire(Neuneu partenaire){
-        this.setEnergie(this.getEnergie()-50);
+       //TODO a completer
+    	this.setEnergie(this.getEnergie()-50);
         partenaire.setEnergie(partenaire.getEnergie()-50);
         //...
+    }
+    
+    public void donnerEnergie(Neuneu lofteur){
+    	//TODO a completer
+    }
+    
+    public void cycleDeVie(){
+    	//TODO : deplacer puis manger puis reproduire??? 
+    	// privilegier la reproductoion?
+    	// consideration de l'energie restante les neuneus sont fleimard..
+    	// puis mort
+    	
     }
 
 }
