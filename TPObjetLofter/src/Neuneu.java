@@ -30,6 +30,9 @@ public abstract class Neuneu {
     
     //Méthodes
 
+    /**
+     * @return
+     */
     public int getEnergie() {
         return energie;
     }
