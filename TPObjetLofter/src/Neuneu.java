@@ -7,7 +7,7 @@
  * @author bastienmarichalragot
  *
  */
-public abstract class Neuneu {
+public abstract class Neuneu implements Commestible{
     
     //Attributs
     protected String nom;
@@ -74,10 +74,16 @@ public abstract class Neuneu {
     	this.setEnergie(this.getEnergie()-50);
         partenaire.setEnergie(partenaire.getEnergie()-50);
         //...
+        Neuneu nouveauNe= new Neuneu();
+        environnement.ajouterNeuneu(nouveauNe);
+        return nouveauNe; 
+        
     }
     
-    public void donnerEnergie(Neuneu lofteur){
-    	//TODO a completer
+    public void donneEnergie(Neuneu lofteur){
+    	//TODO a modifier 
+    	//energie canibalisme es de combien l'energie du bouffé?
+		lofteur.setEnergie(lofteur.getEnergie()+ 50);
     }
     
     public void cycleDeVie(){

@@ -23,13 +23,33 @@ public class Nourriture implements Commestible{
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see Commestible#getEnergie()
+	
+	/**
+	 * @return the energie
 	 */
-	@Override
 	public int getEnergie() {
-		// TODO Auto-generated method stub
-		return 0;
+		return energie;
+	}
+
+	/**
+	 * @return the nom
+	 */
+	public String getNom() {
+		return nom;
+	}
+
+	/**
+	 * @param nom the nom to set
+	 */
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	/**
+	 * @param energie the energie to set
+	 */
+	public void setEnergie(int energie) {
+		this.energie = energie;
 	}
 	
 	

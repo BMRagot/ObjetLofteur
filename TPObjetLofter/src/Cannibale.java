@@ -9,8 +9,8 @@
  */
 public class Cannibale extends Vorace{
 	
-	public Cannibale( String nom){
-		super(nom);
+	public Cannibale( String nom, Case position, Loft environnement){
+		super(nom, position, environnement);
 	}
 	
 	/**

@@ -18,5 +18,10 @@ public class Erratique extends Neuneu{
 	
 	public void manger(Commestible nourriture){
 		//TODO manger une partie seulement des reserves de nourriture
+		//TODO gestion
+		for (Nourriture nourriture1:this.position.getReserves()){
+			
+		}
+		
 	}
 }

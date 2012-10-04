@@ -1,4 +1,4 @@
-package com.objet.lofteurs;
+
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

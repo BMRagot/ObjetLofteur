@@ -16,7 +16,7 @@ public class Lapin extends Neuneu{
 	 * Move the "lapin" just wants to fuck
 	 * @see Neuneu#seDeplacer()
 	 */
-	public void seDeplacer(){
+	public void seDeplacer(){		
 		int[] a = null;
 		int[] b = null;
 		int[] c = null;
