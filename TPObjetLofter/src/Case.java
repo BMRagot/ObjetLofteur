@@ -69,5 +69,5 @@ public class Case {
 	public void setPositiony(int positiony) {
 		this.positiony = positiony;
 	}
-	//salut antoine re test 
+	//salut antoine re test retest
 }
