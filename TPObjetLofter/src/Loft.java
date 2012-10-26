@@ -20,6 +20,9 @@ public class Loft {
 	 */
 	public Loft(){
 		//TODO:a completer
+		
+		
+		
 	}
 	
 	/**

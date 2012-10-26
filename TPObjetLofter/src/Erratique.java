@@ -15,7 +15,7 @@ public class Erratique extends Neuneu{
 		super(nom, position, environnement);
 }
 	public void seDeplacer(){
-		//TODO deplacment random et verifier la non sortie du plateau...
+		
 		int a= this.position.getPositionx();
 		int b= this.position.getPositiony();
 	
