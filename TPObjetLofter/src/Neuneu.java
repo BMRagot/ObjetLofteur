@@ -90,18 +90,23 @@ public abstract class Neuneu implements Commestible{
 			}
 			
 	        if (genome==0){
-	        	Neuneu nouveauNe= new Cannibale(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);        							
+	        	Neuneu nouveauNe= new Cannibale(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement); 
+	        	environnement.ajouterNeuneu(nouveauNe);
 	        }
 	        else if(genome==1){
 	        	Neuneu nouveauNe= new Erratique(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
+	        	environnement.ajouterNeuneu(nouveauNe);
 	        }
 	        else if(genome==2){
 	        	Neuneu nouveauNe= new Lapin(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
+	        	environnement.ajouterNeuneu(nouveauNe);
 	        }
 	        else{
 	        	Neuneu nouveauNe= new Vorace(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
+	        	environnement.ajouterNeuneu(nouveauNe);
 	        }
-	        environnement.ajouterNeuneu(nouveauNe);
+	        
+			
         }
     }
     

@@ -127,4 +127,6 @@ public class Loft {
 	public void supprimerNeuneu(Neuneu partant){
 		population.remove(partant);
 	}
+	
+	public void cycleDeVie
 }
