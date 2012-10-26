@@ -13,8 +13,10 @@ public class Vorace extends Erratique{
 		super(nom, position, environnement);
 	}
 	
+	/**
+	 * 
+	 */
 	public void seDeplacer(){
-		//TODO : recherche du stock de nourriture le plus proche
 		//TODO proivilegier le type de nourriture (alcool)
 		int a = 0;
 		int b = 0;
@@ -46,4 +48,5 @@ public class Vorace extends Erratique{
 		}
 		this.position.getReserves().clear();
 	}
+
 }

@@ -77,5 +77,12 @@ public class Case {
 		}
 		return a; 
 	}
+	public boolean compareTo(Case position) {
+		if(this.positionx==position.getPositionx()&&this.positiony==position.getPositiony()){
+			return true;
+		}else{
+			return false;	
+		}
+	}
 	
 }
