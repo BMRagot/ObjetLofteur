@@ -17,7 +17,7 @@ public class Cannibale extends Vorace{
 	 * 
 	 */
 	public void seDeplacer(){
-		//deplce vers le neuneu le plus proche.
+		//deplace vers le neuneu le plus proche.
 		int[] a = null;
 		int[] b = null;
 		int[] c = null;

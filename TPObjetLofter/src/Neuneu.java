@@ -88,9 +88,7 @@ public abstract class Neuneu implements Commestible{
     }
     
     public void donneEnergie(Neuneu lofteur){
-    	//TODO a modifier 
-    	//energie canibalisme es de combien l'energie du bouffé?
-		lofteur.setEnergie(lofteur.getEnergie()+ 50);
+		lofteur.setEnergie(lofteur.getEnergie()+ this.getEnergie());
     }
     
     public void cycleDeVie(){

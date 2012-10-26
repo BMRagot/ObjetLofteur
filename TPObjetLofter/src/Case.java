@@ -69,5 +69,13 @@ public class Case {
 	public void setPositiony(int positiony) {
 		this.positiony = positiony;
 	}
-	//salut antoine re test retest
+	
+	public int getEnergieTotale(){
+		int a=0;
+		for( Nourriture n:this.getReserves()){
+			a=a+n.getEnergie();
+		}
+		return a; 
+	}
+	
 }
