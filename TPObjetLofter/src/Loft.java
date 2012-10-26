@@ -128,5 +128,18 @@ public class Loft {
 		population.remove(partant);
 	}
 	
-	public void cycleDeVie
+	public void cycleDeVie(){
+		while (!this.population.isEmpty()){
+			System.out.println("Il reste "+this.population.size()+" Neuneus!");
+			for(Neuneu a:this.population){
+				a.cycleDeVie();
+				if (a.getEnergie()<=0){
+					this.supprimerNeuneu(a);
+					System.out.println("Il reste "+a.getEnergie()+" d'énergie à "+a.getNom()+" !");
+				}
+			}
+		}
+			
+		
+	}
 }
