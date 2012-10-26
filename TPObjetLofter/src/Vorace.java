@@ -18,4 +18,19 @@ public class Vorace extends Erratique{
 		//TODO proivilegier le type de nourriture (alcool)
 		
 	}
+
+	/* (non-Javadoc)
+	 * @see Erratique#manger(Commestible)
+	 */
+	@Override
+	public void manger(Commestible nourriture) {
+		// TODO Auto-generated method stub
+		super.manger(nourriture);
+		for(Nourriture manger:this.position.getReserves()){
+			manger.donneEnergie(this);
+		}
+		this.position.getReserves().clear();
+		
+	}
+	
 }

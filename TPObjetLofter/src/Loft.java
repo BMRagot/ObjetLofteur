@@ -24,19 +24,17 @@ public class Loft {
 	 */
 	public Loft(int l, int h, ArrayList<Neuneu> POP){		
 		this.population=POP;
-		
 		this.largeur=l;
 		this.hauteur=h;
 		for(int j=1;j<=hauteur;j++){
 			for(int i=1; i<=largeur; i++){
-				
 				LinkedList<Nourriture>Bouff=new LinkedList<Nourriture>();
 				double test=Math.random();
 				if (test<0.5){
 					
 				}else if(test<0.75){
-					Bouff.add( new Nourriture());//ppiocher enumeration
-				}else if(test<0.95){
+					Bouff.add( new Nourriture());
+					}else if(test<0.95){
 					Bouff.add(new Nourriture());
 					Bouff.add(new Nourriture());
 					Bouff.add(new Nourriture());
@@ -48,13 +46,9 @@ public class Loft {
 					Bouff.add(new Nourriture());
 					Bouff.add(new Nourriture());
 				}
-				
-				terrain[i][j]= new Case(i,j,Bouff);
-				
+				terrain[i][j]= new Case(i,j,Bouff);		
 			}
 		}
-		
-		
 	}
 	
 	public Loft(ArrayList<Neuneu> POP){
