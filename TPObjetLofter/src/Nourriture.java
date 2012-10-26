@@ -11,6 +11,13 @@ public class Nourriture implements Commestible{
 	protected String nom;
 	protected int energie;
 	
+	public Nourriture(){
+		//TODO constructeur random appel de l'enmeration
+		
+		this.nom="";
+		this.energie=0;
+	}
+	
 	public Nourriture(String nom, int energie){
 		this.nom=nom;
 		this.energie=energie;
@@ -51,6 +58,5 @@ public class Nourriture implements Commestible{
 	public void setEnergie(int energie) {
 		this.energie = energie;
 	}
-	
 	
 }
