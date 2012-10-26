@@ -16,5 +16,8 @@ public enum Name {
 		this.nom=n;
 	}
 	
+	public String getNom(){
+		 return nom;
+	 }
 	
 }
