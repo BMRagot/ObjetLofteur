@@ -46,6 +46,7 @@ public class Erratique extends Neuneu{
 	@Override
 	public void cycleDeVie() {
 		this.seDeplacer();
+		this.setEnergie(this.getEnergie()-2);
 		
 		if(this.getPosition().getReserves().size()!=0){
 			this.manger(this.getPosition().getReserves().getFirst());

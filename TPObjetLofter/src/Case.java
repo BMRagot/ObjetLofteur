@@ -41,7 +41,7 @@ public class Case {
 	public void ajouterNourriture(Nourriture nourritureAjoutee){
 		this.reserves.add(nourritureAjoutee);
 	}
-	public void supprimerNourriture(Nourriture nourriture){
+	public void supprimerNourriture( Commestible nourriture){
 		this.reserves.remove(nourriture);
 	}
 	

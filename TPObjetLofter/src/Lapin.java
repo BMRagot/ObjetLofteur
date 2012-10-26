@@ -51,8 +51,21 @@ public class Lapin extends Neuneu{
 		
 		else {
 			System.out.println("Vous ne pouvez pas manger ça!");
+		}		
+	}
+	
+	public void cycleDeVie() {
+		this.seDeplacer();
+		this.setEnergie(this.getEnergie()-2);
+		
+		if(this.getPosition().getReserves().size()!=0){
+			this.manger(this.getPosition().getReserves().getFirst());
 		}
-		
-		
+				
+		for(Neuneu n:this.getEnvironnement().getPopulation()){
+			if(this.getPosition().compareTo(n.getPosition())){
+				this.seReproduire(n);
+			}
+		}		
 	}
 }
