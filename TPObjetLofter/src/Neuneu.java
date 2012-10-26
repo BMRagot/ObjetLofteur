@@ -74,7 +74,14 @@ public abstract class Neuneu implements Commestible{
     	this.setEnergie(this.getEnergie()-50);
         partenaire.setEnergie(partenaire.getEnergie()-50);
         //...
-        Neuneu nouveauNe= new Neuneu();
+        int genome=(int)(Math.random() * (2));
+        if (genome==0){
+        	Neuneu nouveauNe= (partenaire.getClass()).newInstance();
+        }
+        else {
+        	Neuneu nouveauNe= (this.getClass()).newInstance();
+        }
+        
         environnement.ajouterNeuneu(nouveauNe);
         return nouveauNe; 
         
