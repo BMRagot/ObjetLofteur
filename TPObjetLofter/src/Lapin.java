@@ -49,6 +49,10 @@ public class Lapin extends Neuneu{
 			this.position.supprimerNourriture(nourriture);
 		}
 		
+		else {
+			System.out.println("Vous ne pouvez pas manger ça!");
+		}
+		
 		
 	}
 }
