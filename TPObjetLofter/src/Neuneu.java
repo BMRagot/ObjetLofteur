@@ -69,25 +69,39 @@ public abstract class Neuneu implements Commestible{
     
     public abstract void manger(Commestible nourriture);
     
-    public Neuneu seReproduire(Neuneu partenaire){
-       //TODO a completer
+    public void seReproduire(Neuneu partenaire){
+       
     	this.setEnergie(this.getEnergie()-50);
         partenaire.setEnergie(partenaire.getEnergie()-50);
-        //...
+        
         String nom = new String((this.getNom().substring(0, (int)(this.getNom().length()/2)))
         						+partenaire.getNom().substring((int)(partenaire.getNom().length()/2)));
+        
         int genome=(int)(Math.random() * (4));
+        
+        int a= this.position.getPositionx();
+		int b= this.position.getPositiony();
+	
+		while (a<0 && a>this.environnement.largeur){
+			a=a +(int)(Math.random() * (3)) - 1;
+		}
+		while(b<0 && b>this.environnement.hauteur){
+			b=b+(int)(Math.random() * (3)) - 1;
+		}
+		
         if (genome==0){
-        	Neuneu nouveauNe= new Cannibale(
-        							nom,this.getEnvironnement().getTerrain()[this.getPosition().getPositionx()+(int)(Math.random()))][]);
+        	Neuneu nouveauNe= new Cannibale(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);        							
         }
-        else if(){
-        	Neuneu nouveauNe= (this.getClass()).newInstance();
+        else if(genome==1){
+        	Neuneu nouveauNe= new Erratique(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
         }
-        
-        environnement.ajouterNeuneu(nouveauNe);
-        return nouveauNe; 
-        
+        else if(genome==2){
+        	Neuneu nouveauNe= new Lapin(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
+        }
+        else{
+        	Neuneu nouveauNe= new Vorace(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
+        }
+        environnement.ajouterNeuneu(nouveauNe);        
     }
     
     public void donneEnergie(Neuneu lofteur){
