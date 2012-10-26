@@ -42,8 +42,6 @@ public class Lapin extends Neuneu{
 	 */
 	public void manger(Commestible nourriture){
 		
-		//TODO:/test neuneu (canibalisme) ou nourriture
-		
 		if (nourriture.getClass().getName().equals("Nourriture")){
 			nourriture.donneEnergie(this);
 			this.position.supprimerNourriture(nourriture);

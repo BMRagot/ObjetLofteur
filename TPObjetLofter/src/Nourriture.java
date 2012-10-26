@@ -13,9 +13,10 @@ public class Nourriture implements Commestible{
 	
 	public Nourriture(){
 		//TODO constructeur random appel de l'enmeration
+		int a =(int) Math.random()*5;
 		
-		this.nom="";
-		this.energie=0;
+		this.nom=Tartine.values()[a].getNom();
+		this.energie=Tartine.values()[a].getEnergie();
 	}
 	
 	public Nourriture(String nom, int energie){

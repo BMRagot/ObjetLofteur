@@ -27,11 +27,14 @@ public class Saison1 {
 		//zone.ajouterObjet(loft);
 		
 		//TODO creation de la population...
+		pop=new ArrayList<Neuneu>();
+		Loft loft = new Loft(largeur,hauteur,pop);
+
 		
 		for (int i=0 ; i<nombreLofteurs ; i++) {
 			double x = Math.random();
 			if (x<proportionVorace) {
-				loft.add(new Vorace(loft,
+				pop.add(new Vorace(loft,
 						(int)(Math.random()*29),
 						(int)(Math.random()*29),
 						3));
@@ -55,7 +58,6 @@ public class Saison1 {
 			}
 		}
 		
-		Loft loft = new Loft(largeur,hauteur,pop);
 		
 		loft.go();
 	}
