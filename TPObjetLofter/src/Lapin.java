@@ -17,25 +17,35 @@ public class Lapin extends Neuneu{
 	 * @see Neuneu#seDeplacer()
 	 */
 	public void seDeplacer(){		
-		int[] a = null;
-		int[] b = null;
-		int[] c = null;
+		int[] a = new int[this.environnement.getPopulation().size()];;
+		int[] b = new int[this.environnement.getPopulation().size()];;
+		int[] c = new int[this.environnement.getPopulation().size()];;
 		int l=0;
 		
 		for(int k=0;k<this.environnement.getPopulation().size();k++){
 			a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
 			b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
 			c[k]=a[k]*a[k]+b[k]*b[k];
-			
-			if (c[k]>c[k-1] && k>1){
-				l=k;
+		}	
+		for(int k=0;k<this.environnement.getPopulation().size()-1;k++){	
+			if (c[k]!=0 && c[k]>c[k+1]){
+				l=k+1;
 			}
 		}
-		this.position.setPositionx(this.position.getPositionx()+a[l]/Math.abs(a[l]));
-		this.position.setPositiony(this.position.getPositiony()+b[l]/Math.abs(b[l]));
-	
-	//se dŽplace vers le neuneu le plus proche. mange ensuite??
+
+		if(a[l]>0){
+			this.position.setPositionx(this.position.getPositionx()+1);
+		}else if (a[l]<0){
+			this.position.setPositionx(this.position.getPositionx()-1);
+		}
+		if(b[l]>0){
+			this.position.setPositiony(this.position.getPositiony()+1);
+		}else if( b[l]<0){
+			this.position.setPositiony(this.position.getPositiony()-1);
+		}
 	}
+		
+	
 	/**
 	 * 
 	 * @param nourriture
@@ -63,6 +73,7 @@ public class Lapin extends Neuneu{
 		for(Neuneu n:this.getEnvironnement().getPopulation()){
 			if(this.getPosition().compareTo(n.getPosition())){
 				this.seReproduire(n);
+				break;
 			}
 		}		
 	}

@@ -18,12 +18,12 @@ public class Vorace extends Erratique{
 	 */
 	public void seDeplacer(){
 		//TODO proivilegier le type de nourriture (alcool)
-		int a = 0;
-		int b = 0;
+		int a = 1;
+		int b = 1;
 
-		Case c= this.environnement.getTerrain()[1][1];
-		for(int j=2;j<=this.environnement.getHauteur();j++){
-			for(int i=2;i<=this.environnement.getLargeur();i++){
+		Case c= this.environnement.getTerrain()[0][0];
+		for(int j=1;j<this.environnement.getHauteur();j++){
+			for(int i=1;i<this.environnement.getLargeur();i++){
 				if(this.environnement.getTerrain()[i][j].getEnergieTotale()>c.getEnergieTotale()){
 					c=this.environnement.getTerrain()[i][j];
 				}
@@ -31,10 +31,16 @@ public class Vorace extends Erratique{
 		}
 		a=c.getPositionx()-this.position.getPositionx();
 		b=c.getPositiony()-this.position.getPositiony();
-			
-		this.position.setPositionx(this.position.getPositionx()+a/Math.abs(a));
-		this.position.setPositiony(this.position.getPositiony()+b/Math.abs(b));
-		
+		if(a>0){
+			this.position.setPositionx(this.position.getPositionx()+1);
+		}else if (a<0){
+			this.position.setPositionx(this.position.getPositionx()-1);
+		}
+		if(b>0){
+			this.position.setPositiony(this.position.getPositiony()+1);
+		}else if( b<0){
+			this.position.setPositiony(this.position.getPositiony()-1);
+		}
 	}
 
 	/* (non-Javadoc)

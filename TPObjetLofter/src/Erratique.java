@@ -32,11 +32,18 @@ public class Erratique extends Neuneu{
 	}
 	
 	public void manger(Commestible nourriture){
-		for (Nourriture nourriture1:this.position.getReserves()){
-			double test=Math.random();
-			if(test<0.3){
-				nourriture1.donneEnergie(this);
-				this.position.getReserves().remove(nourriture1);
+		if(this.position.getReserves().size()!=0){
+			int max=this.position.getReserves().size();
+			Nourriture[] effacer= new Nourriture[max];
+			for (int i=0;i<max;i++){
+				double test=Math.random();
+				if(test<0.3){
+					this.position.getReserves().get(i).donneEnergie(this);
+					effacer[i]=this.position.getReserves().get(i);
+				}
+			}
+			for(int i=0;i<max;i++){
+				this.position.getReserves().remove(effacer[i]);
 			}
 		}
 	}
@@ -55,6 +62,7 @@ public class Erratique extends Neuneu{
 		for(Neuneu n:this.getEnvironnement().getPopulation()){
 			if(this.getPosition().compareTo(n.getPosition())){
 				this.seReproduire(n);
+				break;
 			}
 		}		
 		

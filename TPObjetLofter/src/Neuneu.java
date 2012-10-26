@@ -115,10 +115,6 @@ public abstract class Neuneu implements Commestible{
     }
     
     public void cycleDeVie(){
-    	//TODO : deplacer puis manger puis reproduire??? 
-    	// privilegier la reproductoion?
-    	// consideration de l'energie restante les neuneus sont fleimard..
-    	// puis mort
     	
     }
 

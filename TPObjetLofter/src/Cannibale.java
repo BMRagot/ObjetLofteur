@@ -18,23 +18,33 @@ public class Cannibale extends Vorace{
 	 */
 	public void seDeplacer(){
 		//deplace vers le neuneu le plus proche.
-		int[] a = null;
-		int[] b = null;
-		int[] c = null;
+		int[] a = new int[this.environnement.getPopulation().size()];
+		int[] b = new int[this.environnement.getPopulation().size()];
+		int[] c = new int[this.environnement.getPopulation().size()];
 		int l=0;
 		
 		for(int k=0;k<this.environnement.getPopulation().size();k++){
 			a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
 			b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
 			c[k]=a[k]*a[k]+b[k]*b[k];
-			
-			if (c[k]>c[k-1] && k>1){
-				l=k;
+		}
+		for(int k=0;k<this.environnement.getPopulation().size()-1;k++){	
+			if (c[k]!=0 && c[k]>c[k+1]){
+				l=k+1;
 			}
 		}
-		this.position.setPositionx(this.position.getPositionx()+a[l]/Math.abs(a[l]));
-		this.position.setPositiony(this.position.getPositiony()+b[l]/Math.abs(b[l]));
+		if(a[l]>0){
+			this.position.setPositionx(this.position.getPositionx()+1);
+		}else if (a[l]<0){
+			this.position.setPositionx(this.position.getPositionx()-1);
+		}
+		if(b[l]>0){
+			this.position.setPositiony(this.position.getPositiony()+1);
+		}else if( b[l]<0){
+			this.position.setPositiony(this.position.getPositiony()-1);
+		}
 	}
+		
 
 	/* (non-Javadoc)
 	 * @see Vorace#manger(Commestible)
@@ -42,17 +52,24 @@ public class Cannibale extends Vorace{
 	@Override
 	public void manger(Commestible nourriture) {
 		
-		for (Nourriture nourriture1:this.position.getReserves()){
+		int max=this.position.getReserves().size();
+		Nourriture[] effacer= new Nourriture[max];
+		for (int i=0; i<max;i++){
 			double test=Math.random();
 			if(test<0.3){
-				nourriture1.donneEnergie(this);
-				this.position.getReserves().remove(nourriture1);
+				this.position.getReserves().get(i).donneEnergie(this);
+				effacer[i]=this.position.getReserves().get(i);
 			}
 		}
+		for(int i=0;i<max;i++){
+				this.position.getReserves().remove(effacer[i]);
+		}
+		
 		for(Neuneu n:this.getEnvironnement().getPopulation()){
 			if(this.getPosition().compareTo(n.getPosition())){
-				this.manger(n);
+				n.donneEnergie(this);
 				this.environnement.supprimerNeuneu(n);
+				break;
 			}
 		}		
 		
