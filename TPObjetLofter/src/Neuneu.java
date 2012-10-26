@@ -78,7 +78,8 @@ public abstract class Neuneu implements Commestible{
         						+partenaire.getNom().substring((int)(partenaire.getNom().length()/2)));
         int genome=(int)(Math.random() * (4));
         if (genome==0){
-        	Neuneu nouveauNe= new Cannibale(nom,);
+        	Neuneu nouveauNe= new Cannibale(
+        							nom,this.getEnvironnement().getTerrain()[this.getPosition().getPositionx()+(int)(Math.random()))][]);
         }
         else if(){
         	Neuneu nouveauNe= (this.getClass()).newInstance();
