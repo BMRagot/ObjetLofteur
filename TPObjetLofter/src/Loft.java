@@ -33,15 +33,15 @@ public class Loft implements ObjetDessinable {
 		this.hauteur=h;
 		this.zone=zone2;
 		this.terrain=new Case[largeur][hauteur];
-		for(int j=1;j<=hauteur;j++){
-			for(int i=1; i<=largeur; i++){
+		for(int j=0;j<hauteur;j++){
+			for(int i=0; i<largeur; i++){
 				LinkedList<Nourriture>Bouff=new LinkedList<Nourriture>();
 				double test=Math.random();
 				if (test<0){
 					int o=1;
-				}else if(test<0.90){
+				}else if(test<1){
 					Bouff.add(new Nourriture(i,j));
-					}else if(test<0.95){
+				}else if(test<0.95){
 					Bouff.add(new Nourriture(i,j));
 					Bouff.add(new Nourriture(i,j));
 					Bouff.add(new Nourriture(i,j));
@@ -53,9 +53,9 @@ public class Loft implements ObjetDessinable {
 					Bouff.add(new Nourriture(i,j));
 					Bouff.add(new Nourriture(i,j));
 				}
-				terrain[i-1][j-1]= new Case(i-1,j-1,Bouff);
+				terrain[i][j]= new Case(i,j,Bouff);
 				for(Nourriture n:Bouff){
-					zone.ajouterObjet(n);
+					//zone.ajouterObjet(n);
 				}
 			}
 		}
@@ -166,7 +166,10 @@ public class Loft implements ObjetDessinable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		zone.repaint();
+		//zone.repaint();
+			
+			//Graphics g = null;
+			this.dessinerObjet(zone.getGraphics());
 		}
 		//TODO message de fin...
 	}
@@ -174,5 +177,16 @@ public class Loft implements ObjetDessinable {
 	@Override
 	public void dessinerObjet(Graphics g) {
 		// TODO Auto-generated method stub
+		for(int j=0;j<hauteur;j++){
+			for(int i=0; i<largeur; i++){
+				terrain[i][j].dessinerObjet(g);
+				for(Nourriture n:terrain[i][j].getReserves()){
+					n.dessinerObjet(g);
+				}
+			}	
+		}
+		for(Neuneu lofter:this.population){
+			lofter.dessinerObjet(g);
+		}
 	}
 }

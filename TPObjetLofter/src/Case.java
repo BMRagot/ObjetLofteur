@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.LinkedList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.LinkedList;
  * @author bastienmarichalragot
  *
  */
-public class Case {
+public class Case implements ObjetDessinable {
 	
 	protected LinkedList<Nourriture> reserves;
 	protected int positionx;
@@ -83,6 +85,17 @@ public class Case {
 		}else{
 			return false;	
 		}
+	}
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		int x = this.getPositionx();
+        int y = this.getPositiony();
+        int squaresize = ZoneGraphique.PIXEL_SIZE;
+        int squaregap = (int) Math.round(0.1 * (float) ZoneGraphique.PIXEL_SIZE);
+        g.setColor(Color.PINK);
+        g.fill3DRect(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap, true);
+   
 	}
 	
 }

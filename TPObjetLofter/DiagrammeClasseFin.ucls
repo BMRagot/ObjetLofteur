@@ -121,21 +121,21 @@
     </display>  
   </enumeration>  
   <association id="16">    
-    <bendpoint x="722" y="932"/>    
-    <bendpoint x="722" y="1117"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="17" name="position"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="17" name="pop"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="19">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="20" name="pop"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
+    <bendpoint x="722" y="932"/>    
+    <bendpoint x="722" y="1117"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="20" name="position"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="22">    
@@ -196,7 +196,42 @@
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <realization id="39">    
+  <generalization id="39">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <realization id="41">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <generalization id="42">    
+    <bendpoint x="580" y="307"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="43">    
+    <bendpoint x="807" y="307"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="44">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="45" name="terrain"/>      
+      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="47">    
+    <bendpoint x="610" y="1489"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <realization id="48">    
     <bendpoint x="358" y="560"/>    
     <bendpoint x="316" y="932"/>    
     <bendpoint x="316" y="1117"/>    
@@ -204,71 +239,40 @@
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <dependency id="41">    
+  <dependency id="49">    
     <bendpoint x="959" y="932"/>    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="42">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <generalization id="43">    
-    <bendpoint x="580" y="307"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <dependency id="44">    
+  <dependency id="50">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <generalization id="45">    
-    <bendpoint x="807" y="307"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <association id="46">    
+  <association id="51">    
     <bendpoint x="581" y="932"/>    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="47" name="environnement"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+      <attribute id="52" name="environnement"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="50" name="zone"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="52">    
+  <dependency id="54">    
     <bendpoint x="337" y="307"/>    
     <bendpoint x="337" y="560"/>    
     <bendpoint x="337" y="932"/>    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <association id="53">    
+  <association id="55">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="54" name="terrain"/>      
-      <multiplicity id="55" minimum="0" maximum="2147483647"/>    
+      <attribute id="56" name="zone"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="56">    
-    <bendpoint x="610" y="1489"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <dependency id="57">    
+  <dependency id="58">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="1"/>  
   </dependency>  

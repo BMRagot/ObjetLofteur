@@ -50,7 +50,7 @@ public class Saison1 {
 		}
 		loft.setPopulation(pop);
 		zone.ajouterObjet(loft);
-		zone.repaint();
+		//zone.repaint();
 		loft.cycleDeVie();
 	}
 
