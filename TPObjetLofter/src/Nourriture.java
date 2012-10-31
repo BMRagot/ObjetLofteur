@@ -12,15 +12,49 @@ import java.awt.Graphics;
 public  class Nourriture extends Commestible{
 	protected String nom;
 	protected int energie;
+	protected int X;
+	protected int Y;
 	
-	public Nourriture(){
+	public Nourriture(int x, int y){
 		//TODO constructeur random appel de l'enmeration
 		int a =(int) Math.random()*5;
 		
 		this.nom=Tartine.values()[a].getNom();
 		this.energie=Tartine.values()[a].getEnergie();
+		
+		this.X=x;
+		this.Y=y;
+		
 	}
 	
+	/**
+	 * @return the x
+	 */
+	public int getX() {
+		return X;
+	}
+
+	/**
+	 * @param x the x to set
+	 */
+	public void setX(int x) {
+		X = x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return Y;
+	}
+
+	/**
+	 * @param y the y to set
+	 */
+	public void setY(int y) {
+		Y = y;
+	}
+
 	public Nourriture(String nom, int energie){
 		this.nom=nom;
 		this.energie=energie;

@@ -39,18 +39,18 @@ public class Loft implements ObjetDessinable {
 				if (test<0){
 					int o=1;
 				}else if(test<0.75){
-					Bouff.add(new Nourriture());
+					Bouff.add(new Nourriture(i,j));
 					}else if(test<0.95){
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
 				}else{
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
-					Bouff.add(new Nourriture());
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
+					Bouff.add(new Nourriture(i,j));
 				}
 				terrain[i-1][j-1]= new Case(i-1,j-1,Bouff);
 			}
