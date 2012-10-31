@@ -39,7 +39,7 @@ public class Loft implements ObjetDessinable {
 				double test=Math.random();
 				if (test<0){
 					int o=1;
-				}else if(test<0.75){
+				}else if(test<0.90){
 					Bouff.add(new Nourriture(i,j));
 					}else if(test<0.95){
 					Bouff.add(new Nourriture(i,j));
@@ -55,7 +55,7 @@ public class Loft implements ObjetDessinable {
 				}
 				terrain[i-1][j-1]= new Case(i-1,j-1,Bouff);
 				for(Nourriture n:Bouff){
-					//zone.ajouterObjet(n);
+					zone.ajouterObjet(n);
 				}
 			}
 		}
