@@ -37,9 +37,9 @@ public class Loft implements ObjetDessinable {
 			for(int i=0; i<largeur; i++){
 				LinkedList<Nourriture>Bouff=new LinkedList<Nourriture>();
 				double test=Math.random();
-				if (test<0){
+				if (test<0.5){
 					int o=1;
-				}else if(test<1){
+				}else if(test<0.8){
 					Bouff.add(new Nourriture(i,j));
 				}else if(test<0.95){
 					Bouff.add(new Nourriture(i,j));
