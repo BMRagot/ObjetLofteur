@@ -7,7 +7,7 @@
  * @author bastienmarichalragot
  *
  */
-public abstract class Neuneu implements Commestible{
+public abstract class Neuneu extends Commestible{
     
     //Attributs
     protected String nom;

@@ -23,6 +23,9 @@ public class ZoneGraphique extends JFrame {
 	 */
 	LinkedList<ObjetDessinable> liste;
 	
+    public static final int PIXEL_SIZE = 30;
+
+	
 	/**
 	 * constructeur
 	 *
@@ -57,6 +60,13 @@ public class ZoneGraphique extends JFrame {
 	 */
 	void ajouterObjet(ObjetDessinable o) {
 		liste.add(o);
+	}
+	/**
+	 * suppression d'un objet dans la zone graphique
+	 * @param o
+	 */
+	void supprimerObjet(ObjetDessinable o){
+		liste.remove(o);
 	}
 	
 	/**

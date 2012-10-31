@@ -7,7 +7,8 @@
  * @author bastienmarichalragot
  *
  */
-public interface Commestible {
-	public void donneEnergie(Neuneu lofteur);
+public abstract class Commestible implements ObjetDessinable{
+	public  void donneEnergie(Neuneu lofteur) {
+	}
 
 }

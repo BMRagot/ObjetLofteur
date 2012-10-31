@@ -16,18 +16,21 @@ public class Loft implements ObjetDessinable {
 	protected int hauteur;
 	protected int largeur;
 	protected ArrayList<Neuneu> population;
+	protected ZoneGraphique zone;
 	
 	/**
 	 * 
 	 * @param l
 	 * @param h
 	 * @param POP
+	 * @param zone2 
 	 */
 	@SuppressWarnings("null")
-	public Loft(int l, int h, ArrayList<Neuneu> POP){		
+	public Loft(int l, int h, ArrayList<Neuneu> POP, ZoneGraphique zone2){		
 		this.population=POP;
 		this.largeur=l;
 		this.hauteur=h;
+		this.zone=zone2;
 		this.terrain=new Case[largeur][hauteur];
 		for(int j=1;j<=hauteur;j++){
 			for(int i=1; i<=largeur; i++){
@@ -121,6 +124,7 @@ public class Loft implements ObjetDessinable {
 	 */
 	public void ajouterNeuneu(Neuneu arrivant){
 		population.add(arrivant);
+		zone.ajouterObjet(arrivant);
 	}
 	
 	/**
@@ -129,6 +133,7 @@ public class Loft implements ObjetDessinable {
 	 */
 	public void supprimerNeuneu(Neuneu partant){
 		population.remove(partant);
+		zone.supprimerObjet(partant);
 	}
 	
 	public void cycleDeVie(){
@@ -137,8 +142,9 @@ public class Loft implements ObjetDessinable {
 			int nb=this.population.size();
 			int i=0;
 			while(i<this.population.size()){
+				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à "+this.population.get(i).getNom()+" !");
+
 				this.population.get(i).cycleDeVie();
-				//System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à "+this.population.get(i).getNom()+" !");
 				//TODO gros bug sur le trip, des neuneu meurent lors de leur cycle de vie?? bug un canniba se mange tout seul a coup sur!
 				i=i+1;
 			}
@@ -150,7 +156,15 @@ public class Loft implements ObjetDessinable {
 					i=i+1;
 				}
 			}
+			try {
+				Thread.sleep(250);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		zone.repaint();
 		}
+		//TODO message de fin...
 	}
 
 	@Override

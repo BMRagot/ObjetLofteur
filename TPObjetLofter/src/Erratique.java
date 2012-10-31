@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Random;
 
 /**
@@ -67,6 +69,16 @@ public class Erratique extends Neuneu{
 		}		
 		
 		
+	}
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		int x = this.getPosition().getPositionx();
+        int y = this.getPosition().getPositiony();
+        int squaresize = ZoneGraphique.PIXEL_SIZE;
+        int squaregap = (int) Math.round(0.2 * (float) ZoneGraphique.PIXEL_SIZE);
+        g.setColor(Color.RED);
+        g.fillOval(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap);
 	}
 	
 	

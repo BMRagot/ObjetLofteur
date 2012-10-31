@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 /**
  * 1 oct. 2012
  * Nourriture.java
@@ -7,7 +9,7 @@
  * @author bastienmarichalragot
  *
  */
-public class Nourriture implements Commestible{
+public  class Nourriture extends Commestible{
 	protected String nom;
 	protected int energie;
 	
@@ -24,7 +26,6 @@ public class Nourriture implements Commestible{
 		this.energie=energie;
 	}
 
-	@Override
 	public void donneEnergie(Neuneu lofteur) {
 		lofteur.setEnergie(lofteur.getEnergie()+ this.energie);
 		//this.energie=0; peut etre 
@@ -58,6 +59,12 @@ public class Nourriture implements Commestible{
 	 */
 	public void setEnergie(int energie) {
 		this.energie = energie;
+	}
+
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		//TODO bug on a pas la positon de la nourriture comment utiliser l'interface maintenant... ??
 	}
 	
 }

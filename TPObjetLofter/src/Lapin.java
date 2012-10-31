@@ -1,3 +1,5 @@
+import java.awt.Graphics;
+
 /**
  * 1 oct. 2012
  * Lapin.java
@@ -76,5 +78,11 @@ public class Lapin extends Neuneu{
 				break;
 			}
 		}		
+	}
+
+	@Override
+	public void dessinerObjet(Graphics g) {
+		// TODO Auto-generated method stub
+		
 	}
 }
