@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
 /**
  * 1 oct. 2012
  * Cannibale.java
@@ -73,6 +76,20 @@ public class Cannibale extends Vorace{
 			}
 		}		
 		
+	}
+
+	/* (non-Javadoc)
+	 * @see Erratique#dessinerObjet(java.awt.Graphics)
+	 */
+	@Override
+	public void dessinerObjet(Graphics g) {
+		int x = this.getPosition().getPositionx();
+        int y = this.getPosition().getPositiony();
+        int squaresize = ZoneGraphique.PIXEL_SIZE;
+        int squaregap = (int) Math.round(0.2 * (float) ZoneGraphique.PIXEL_SIZE);
+        g.setColor(Color.GREEN);
+        g.fillOval(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap);
+	
 	}
 	
 	
