@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -99,6 +100,14 @@ public  class Nourriture extends Commestible{
 	public void dessinerObjet(Graphics g) {
 		// TODO Auto-generated method stub
 		//TODO bug on a pas la positon de la nourriture comment utiliser l'interface maintenant... ??
+		int x = this.getX();
+        int y = this.getY();
+        int squaresize = ZoneGraphique.PIXEL_SIZE;
+        int squaregap = (int) Math.round(0.1 * (float) ZoneGraphique.PIXEL_SIZE);
+        g.setColor(Color.ORANGE);
+        g.fill3DRect(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap, true);
+   
+	
 	}
 	
 }

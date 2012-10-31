@@ -21,7 +21,7 @@ public class Saison1 {
 	}
 	
 	public void primeTime() {
-		ZoneGraphique zone = new ZoneGraphique("Mon premier loft");
+		ZoneGraphique zone = new ZoneGraphique("Mon premier loft",largeur,hauteur);
 		
 		//loft.remplissageAleatoire(0.1f);
 		//zone.ajouterObjet(loft);

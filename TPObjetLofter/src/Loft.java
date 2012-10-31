@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -53,6 +54,9 @@ public class Loft implements ObjetDessinable {
 					Bouff.add(new Nourriture(i,j));
 				}
 				terrain[i-1][j-1]= new Case(i-1,j-1,Bouff);
+				for(Nourriture n:Bouff){
+					//zone.ajouterObjet(n);
+				}
 			}
 		}
 	}
@@ -170,6 +174,5 @@ public class Loft implements ObjetDessinable {
 	@Override
 	public void dessinerObjet(Graphics g) {
 		// TODO Auto-generated method stub
-		
 	}
 }
