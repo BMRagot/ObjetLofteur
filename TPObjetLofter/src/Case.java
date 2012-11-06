@@ -35,10 +35,10 @@ public class Case implements ObjetDessinable {
 		return reserves;
 	}
 	/**
-	 * @param reserves the reserves to set
+	 * @param object the reserves to set
 	 */
-	public void setReserves(LinkedList<Nourriture> reserves) {
-		this.reserves = reserves;
+	public void setReserves(LinkedList<Nourriture> object) {
+		this.reserves = object;
 	}
 	public void ajouterNourriture(Nourriture nourritureAjoutee){
 		this.reserves.add(nourritureAjoutee);
@@ -93,7 +93,11 @@ public class Case implements ObjetDessinable {
         int y = this.getPositiony();
         int squaresize = ZoneGraphique.PIXEL_SIZE;
         int squaregap = (int) Math.round(0.1 * (float) ZoneGraphique.PIXEL_SIZE);
-        g.setColor(Color.PINK);
+        if(this.getEnergieTotale()==0){
+        	g.setColor(Color.GRAY);
+        }else{
+            g.setColor(Color.BLUE);        	
+        }
         g.fill3DRect(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap, true);
    
 	}

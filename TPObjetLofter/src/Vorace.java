@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.LinkedList;
 
 /**
  * 1 oct. 2012
@@ -55,7 +56,7 @@ public class Vorace extends Erratique{
 		for(Nourriture manger:this.position.getReserves()){
 			manger.donneEnergie(this);
 		}
-		this.position.getReserves().clear();
+		this.position.setReserves(new LinkedList<Nourriture>());
 	}
 
 	/* (non-Javadoc)

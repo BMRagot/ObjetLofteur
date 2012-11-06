@@ -37,8 +37,9 @@ public class Loft implements ObjetDessinable {
 			for(int i=0; i<largeur; i++){
 				LinkedList<Nourriture>Bouff=new LinkedList<Nourriture>();
 				double test=Math.random();
-				if (test<0.5){
+				if (test<0.7){
 					int o=1;
+					System.out.print(i+"; "+j+"\n");
 				}else if(test<0.8){
 					Bouff.add(new Nourriture(i,j));
 				}else if(test<0.95){
@@ -128,7 +129,7 @@ public class Loft implements ObjetDessinable {
 	 */
 	public void ajouterNeuneu(Neuneu arrivant){
 		population.add(arrivant);
-		zone.ajouterObjet(arrivant);
+		//zone.ajouterObjet(arrivant);
 	}
 	
 	/**
@@ -137,7 +138,7 @@ public class Loft implements ObjetDessinable {
 	 */
 	public void supprimerNeuneu(Neuneu partant){
 		population.remove(partant);
-		zone.supprimerObjet(partant);
+		//zone.supprimerObjet(partant);
 	}
 	
 	public void cycleDeVie(){
@@ -146,8 +147,8 @@ public class Loft implements ObjetDessinable {
 			int nb=this.population.size();
 			int i=0;
 			while(i<this.population.size()){
-				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à "+this.population.get(i).getNom()+" !");
-
+				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à "+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
+				//System.out.println(this.terrain[29][0].getEnergieTotale());
 				this.population.get(i).cycleDeVie();
 				//TODO gros bug sur le trip, des neuneu meurent lors de leur cycle de vie?? bug un canniba se mange tout seul a coup sur!
 				i=i+1;
@@ -161,7 +162,9 @@ public class Loft implements ObjetDessinable {
 				}
 			}
 			try {
-				Thread.sleep(250);
+				Thread.sleep(450);
+				this.dessinerObjet(zone.getGraphics());
+
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -169,24 +172,36 @@ public class Loft implements ObjetDessinable {
 		//zone.repaint();
 			
 			//Graphics g = null;
-			this.dessinerObjet(zone.getGraphics());
 		}
+		for(int j=0;j<hauteur;j++){
+			for(int i=0; i<largeur; i++){
+				System.out.println(i +";"+ j +" ; " + this.getTerrain()[i][j].getEnergieTotale());
+				
+			}}
 		//TODO message de fin...
 	}
 
 	@Override
 	public void dessinerObjet(Graphics g) {
 		// TODO Auto-generated method stub
+		//zone.repaint();
+		
+		
+		zone.removeAll();
 		for(int j=0;j<hauteur;j++){
 			for(int i=0; i<largeur; i++){
 				terrain[i][j].dessinerObjet(g);
-				for(Nourriture n:terrain[i][j].getReserves()){
-					n.dessinerObjet(g);
-				}
+				//for(Nourriture n:terrain[i][j].getReserves()){
+					//n.dessinerObjet(g);
+				//}
 			}	
 		}
 		for(Neuneu lofter:this.population){
 			lofter.dessinerObjet(g);
 		}
+		zone.validate();
+		//zone.repaint();
+		//zone.update(g);
+		zone.paintAll(g);
 	}
 }

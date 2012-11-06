@@ -72,7 +72,6 @@ public class Erratique extends Neuneu{
 	}
 	@Override
 	public void dessinerObjet(Graphics g) {
-		// TODO Auto-generated method stub
 		int x = this.getPosition().getPositionx();
         int y = this.getPosition().getPositiony();
         int squaresize = ZoneGraphique.PIXEL_SIZE;

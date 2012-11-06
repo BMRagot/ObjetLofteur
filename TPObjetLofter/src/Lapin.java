@@ -20,32 +20,53 @@ public class Lapin extends Neuneu{
 	 * @see Neuneu#seDeplacer()
 	 */
 	public void seDeplacer(){		
-		int[] a = new int[this.environnement.getPopulation().size()];;
-		int[] b = new int[this.environnement.getPopulation().size()];;
-		int[] c = new int[this.environnement.getPopulation().size()];;
-		int l=0;
 		
-		for(int k=0;k<this.environnement.getPopulation().size();k++){
-			a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
-			b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
-			c[k]=a[k]*a[k]+b[k]*b[k];
-		}	
-		for(int k=0;k<this.environnement.getPopulation().size()-1;k++){	
-			if (c[k]!=0 && c[k]>c[k+1]){
-				l=k+1;
+		
+		if( this.energie>50){
+			
+			int[] a = new int[this.environnement.getPopulation().size()];;
+			int[] b = new int[this.environnement.getPopulation().size()];;
+			int[] c = new int[this.environnement.getPopulation().size()];;
+			int l=0;
+			
+			for(int k=0;k<this.environnement.getPopulation().size();k++){
+				a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
+				b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
+				c[k]=a[k]*a[k]+b[k]*b[k];
+			}	
+			for(int k=0;k<this.environnement.getPopulation().size()-1;k++){	
+				if (c[k]!=0 && c[k]>c[k+1]){
+					l=k+1;
+				}
 			}
-		}
 
-		if(a[l]>0){
-			this.position.setPositionx(this.position.getPositionx()+1);
-		}else if (a[l]<0){
-			this.position.setPositionx(this.position.getPositionx()-1);
+			if(a[l]>0){
+				this.position.setPositionx(this.position.getPositionx()+1);
+			}else if (a[l]<0){
+				this.position.setPositionx(this.position.getPositionx()-1);
+			}
+			if(b[l]>0){
+				this.position.setPositiony(this.position.getPositiony()+1);
+			}else if( b[l]<0){
+				this.position.setPositiony(this.position.getPositiony()-1);
+			}
+		}else{
+
+			int a= this.position.getPositionx();
+			int b= this.position.getPositiony();
+		
+			while (a<0 && a>this.environnement.largeur){
+				a=a +(int)(Math.random() * (3)) - 1;
+			}
+			while(b<0 && b>this.environnement.hauteur){
+				b=b+(int)(Math.random() * (3)) - 1;
+			}
+			
+			this.position.setPositionx(a);
+			this.position.setPositiony(b);
+			
 		}
-		if(b[l]>0){
-			this.position.setPositiony(this.position.getPositiony()+1);
-		}else if( b[l]<0){
-			this.position.setPositiony(this.position.getPositiony()-1);
-		}
+		
 	}
 		
 	

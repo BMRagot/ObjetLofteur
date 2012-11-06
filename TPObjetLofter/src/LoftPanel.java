@@ -30,12 +30,12 @@ class LoftPanel extends JPanel {
 	 * on redéfinit la méthode paint() : elle se contente d'appeler les méthodes
 	 * dessinerObjet() de la liste d'objets dessinables
 	 */
-	public void paintComponent(Graphics g) {
+	/*public void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		
 		// on redessine tout
 		for (ObjetDessinable x : listeObjets) {
 			x.dessinerObjet(g);
 		}
-	}
+	}*/
 }

@@ -70,7 +70,7 @@ public abstract class Neuneu extends Commestible{
     public abstract void manger(Commestible nourriture);
     
     public void seReproduire(Neuneu partenaire){
-        if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
+        /*if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
 	    	this.setEnergie(this.getEnergie()-50);
 	        partenaire.setEnergie(partenaire.getEnergie()-50);
 	        
@@ -107,7 +107,7 @@ public abstract class Neuneu extends Commestible{
 	        }
 	        
 			
-        }
+        }*/
     }
     
     public void donneEnergie(Neuneu lofteur){
