@@ -148,8 +148,18 @@ public class Loft implements ObjetDessinable {
 			int i=0;
 			while(i<this.population.size()){
 				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à "+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
-				//System.out.println(this.terrain[29][0].getEnergieTotale());
+				int x=this.population.get(i).getPosition().getPositionx();
+				int y= this.population.get(i).getPosition().getPositiony();
+				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
+				System.out.println(this.population.get(i).getPosition().getEnergieTotale());
+
 				this.population.get(i).cycleDeVie();
+				this.terrain[x][y].setReserves(this.population.get(i).getPosition().getReserves());
+
+				//this.terrain[x][y]=this.population.get(i).getPosition();
+				//this.setTerrain(this.population.get(i).getEnvironnement().getTerrain());
+				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
+
 				//TODO gros bug sur le trip, des neuneu meurent lors de leur cycle de vie?? bug un canniba se mange tout seul a coup sur!
 				i=i+1;
 			}
@@ -162,7 +172,7 @@ public class Loft implements ObjetDessinable {
 				}
 			}
 			try {
-				Thread.sleep(450);
+				Thread.sleep(550);
 				this.dessinerObjet(zone.getGraphics());
 
 			} catch (InterruptedException e) {
@@ -190,7 +200,7 @@ public class Loft implements ObjetDessinable {
 		zone.removeAll();
 		for(int j=0;j<hauteur;j++){
 			for(int i=0; i<largeur; i++){
-				terrain[i][j].dessinerObjet(g);
+				this.terrain[i][j].dessinerObjet(g);
 				//for(Nourriture n:terrain[i][j].getReserves()){
 					//n.dessinerObjet(g);
 				//}
@@ -199,9 +209,9 @@ public class Loft implements ObjetDessinable {
 		for(Neuneu lofter:this.population){
 			lofter.dessinerObjet(g);
 		}
-		zone.validate();
-		//zone.repaint();
-		//zone.update(g);
-		zone.paintAll(g);
+		//zone.validate();
+		zone.repaint();
+		zone.update(g);
+		//zone.paintAll(g);
 	}
 }

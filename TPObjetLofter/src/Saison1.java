@@ -25,7 +25,7 @@ public class Saison1 {
 		
 		//loft.remplissageAleatoire(0.1f);
 		//zone.ajouterObjet(loft);
-		
+		//TODO rajpuuter lapin
 		//TODO corriger la positoon des neuneus avec  la largeur et la hauteur come paramtetre
 		pop=new ArrayList<Neuneu>();
 		Loft loft = new Loft(largeur,hauteur,pop,zone);

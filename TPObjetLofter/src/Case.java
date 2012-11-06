@@ -93,10 +93,10 @@ public class Case implements ObjetDessinable {
         int y = this.getPositiony();
         int squaresize = ZoneGraphique.PIXEL_SIZE;
         int squaregap = (int) Math.round(0.1 * (float) ZoneGraphique.PIXEL_SIZE);
-        if(this.getEnergieTotale()==0){
-        	g.setColor(Color.GRAY);
+        if(this.getEnergieTotale()>0){
+        	g.setColor(Color.BLUE);
         }else{
-            g.setColor(Color.BLUE);        	
+            g.setColor(Color.GRAY);        	
         }
         g.fill3DRect(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap, true);
    

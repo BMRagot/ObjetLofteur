@@ -56,7 +56,8 @@ public class Vorace extends Erratique{
 		for(Nourriture manger:this.position.getReserves()){
 			manger.donneEnergie(this);
 		}
-		this.position.setReserves(new LinkedList<Nourriture>());
+		//this.environnement.getTerrain()[position.getPositionx()][position.getPositiony()].setReserves(new LinkedList<Nourriture>());
+		this.position.reserves.clear();
 	}
 
 	/* (non-Javadoc)

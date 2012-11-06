@@ -117,5 +117,4 @@ public abstract class Neuneu extends Commestible{
     public void cycleDeVie(){
     	
     }
-
 }
