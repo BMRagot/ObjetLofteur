@@ -22,7 +22,7 @@ public class Lapin extends Neuneu{
 	public void seDeplacer(){		
 		
 		
-		if( this.energie>50){
+		if( this.energie>50 && this.environnement.getPopulation().size()>1){
 			
 			int[] a = new int[this.environnement.getPopulation().size()];;
 			int[] b = new int[this.environnement.getPopulation().size()];;
@@ -80,6 +80,7 @@ public class Lapin extends Neuneu{
 		
 		if (nourriture.getClass().getName().equals("Nourriture")){
 			nourriture.donneEnergie(this);
+			this.energie=this.energie + nourriture.getEnergie();
 			this.position.supprimerNourriture(nourriture);
 		}
 		
@@ -89,9 +90,11 @@ public class Lapin extends Neuneu{
 	}
 	
 	public void cycleDeVie() {
+		//Le Lapin commence par se déplacer
 		this.seDeplacer();
 		this.setEnergie(this.getEnergie()-2);
 		
+		//Si de la nourriture est présente sur la case, il mange le premier item
 		if(this.getPosition().getReserves().size()!=0){
 			this.manger(this.getPosition().getReserves().getFirst());
 		}
@@ -110,7 +113,7 @@ public class Lapin extends Neuneu{
         int y = this.getPosition().getPositiony();
         int squaresize = ZoneGraphique.PIXEL_SIZE;
         int squaregap = (int) Math.round(0.2 * (float) ZoneGraphique.PIXEL_SIZE);
-        g.setColor(Color.BLUE);
+        g.setColor(Color.PINK);
         g.fillOval(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap);
 	}
 }

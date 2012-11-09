@@ -52,7 +52,7 @@ public class Vorace extends Erratique{
 	 */
 	@Override
 	public void manger(Commestible nourriture) {
-		super.manger(nourriture);
+		//super.manger(nourriture);
 		for(Nourriture manger:this.position.getReserves()){
 			manger.donneEnergie(this);
 		}
