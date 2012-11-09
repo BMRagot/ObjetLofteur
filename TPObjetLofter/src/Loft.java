@@ -142,6 +142,7 @@ public class Loft implements ObjetDessinable {
 	}
 	
 	public void cycleDeVie(){
+		int nbJour=0;
 		while (!this.population.isEmpty()){
 			System.out.println("Il reste "+this.population.size()+" Neuneus!");
 			int nb=this.population.size();
@@ -182,12 +183,14 @@ public class Loft implements ObjetDessinable {
 		//zone.repaint();
 			
 			//Graphics g = null;
+			nbJour=nbJour+1;
 		}
 		for(int j=0;j<hauteur;j++){
 			for(int i=0; i<largeur; i++){
 				System.out.println(i +";"+ j +" ; " + this.getTerrain()[i][j].getEnergieTotale());
 				
 			}}
+		System.out.println("cette saison a durŽ "+ nbJour +" jours!");
 		//TODO message de fin...
 	}
 

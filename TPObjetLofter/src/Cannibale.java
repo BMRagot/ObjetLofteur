@@ -68,10 +68,12 @@ public class Cannibale extends Vorace{
 				this.position.getReserves().remove(effacer[i]);
 		}
 		
-		for(Neuneu n:this.getEnvironnement().getPopulation()){
-			if(this.getPosition().compareTo(n.getPosition())){
+		for(Neuneu n:this.environnement.getPopulation()){
+			//if(this.getPosition().compareTo(n.getPosition())){
+			if(this.position.getPositionx()==n.getPosition().getPositionx() &&this.position.getPositiony()==n.getPosition().getPositiony()){	
 				n.donneEnergie(this);
 				this.environnement.supprimerNeuneu(n);
+				System.out.println(this.getNom()+" dévore " +n.getNom());
 				break;
 			}
 		}		

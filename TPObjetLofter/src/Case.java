@@ -80,7 +80,7 @@ public class Case implements ObjetDessinable {
 		return a; 
 	}
 	public boolean compareTo(Case position) {
-		if(this.positionx==position.getPositionx()&&this.positiony==position.getPositiony()){
+		if(this.positionx==position.getPositionx() &&this.positiony==position.getPositiony()){
 			return true;
 		}else{
 			return false;	

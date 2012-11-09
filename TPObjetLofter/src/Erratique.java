@@ -20,12 +20,14 @@ public class Erratique extends Neuneu{
 		
 		int a= this.position.getPositionx();
 		int b= this.position.getPositiony();
-	
-		while (a<0 && a>this.environnement.largeur){
-			a=a +(int)(Math.random() * (3)) - 1;
+
+		a = a + (int)(Math.random() * (3)) - 1;
+		while (a<0 || a>this.environnement.largeur-1){
+			a = a + (int)(Math.random() * (3)) - 1;
 		}
-		while(b<0 && b>this.environnement.hauteur){
-			b=b+(int)(Math.random() * (3)) - 1;
+		b= b+(int)(Math.random() * (3)) - 1;
+		while(b<0 || b>this.environnement.hauteur-1){
+			b= b+(int)(Math.random() * (3)) - 1;
 		}
 		
 		this.position.setPositionx(a);
