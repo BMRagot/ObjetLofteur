@@ -14,6 +14,7 @@ public abstract class Neuneu extends Commestible{
     protected Case position;
     protected int energie;
     protected Loft environnement;
+    protected String type;
     
     /**
      * Constructor
@@ -70,7 +71,7 @@ public abstract class Neuneu extends Commestible{
     public abstract void manger(Commestible nourriture);
     
     public void seReproduire(Neuneu partenaire){
-        /*if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
+       /* if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
 	    	this.setEnergie(this.getEnergie()-50);
 	        partenaire.setEnergie(partenaire.getEnergie()-50);
 	        
@@ -115,6 +116,11 @@ public abstract class Neuneu extends Commestible{
     }
     
     public void cycleDeVie(){
+    	
+    }
+    
+    public String getRace(){
+		return type;
     	
     }
 }

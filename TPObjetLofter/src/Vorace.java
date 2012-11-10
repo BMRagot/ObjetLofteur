@@ -15,6 +15,7 @@ public class Vorace extends Erratique{
 
 	public Vorace(String nom, Case position, Loft environnement) {
 		super(nom, position, environnement);
+		this.type="Vorace";
 	}
 	
 	/**

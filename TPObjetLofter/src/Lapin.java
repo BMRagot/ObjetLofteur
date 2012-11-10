@@ -4,42 +4,48 @@ import java.awt.Graphics;
 /**
  * 1 oct. 2012
  * Lapin.java
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
+ *
+ * @author bastien marichal-ragot & antoine veron
  *
  */
 public class Lapin extends Neuneu{
 	public Lapin(String nom, Case position, Loft environnement){
 		super(nom, position, environnement);
+		this.type="Lapin";
 	}
 	
 	/**
-	 * Move the "lapin" just wants to fuck
+	 * Methode de deplacement du lapin qui ne cherche qu'à courir après un partenaire sexuel
 	 * @see Neuneu#seDeplacer()
 	 */
 	public void seDeplacer(){		
-		
-		
+		// si le lapin possede suffisament d'energie pour se reproduire alors il par à la recherche d'un partenaire
 		if( this.energie>50 && this.environnement.getPopulation().size()>1){
-			
+			//calcul des distance séparant les lapins des autres neuneu
 			int[] a = new int[this.environnement.getPopulation().size()];;
 			int[] b = new int[this.environnement.getPopulation().size()];;
 			int[] c = new int[this.environnement.getPopulation().size()];;
-			int l=0;
 			
 			for(int k=0;k<this.environnement.getPopulation().size();k++){
 				a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
 				b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
 				c[k]=a[k]*a[k]+b[k]*b[k];
-			}	
-			for(int k=0;k<this.environnement.getPopulation().size()-1;k++){	
-				if (c[k]!=0 && c[k]>c[k+1]){
-					l=k+1;
+			}
+			//selection du partenaire le plus proche
+			int l=0;
+			while(c[l]==0 && l<this.environnement.getPopulation().size()){
+				l=l+1;
+			}
+			for(int k=0;k<this.environnement.getPopulation().size();k++){	
+				if (c[k]!=0 && c[l]>c[k]){
+					l=k;
 				}
 			}
-
+			// calcul des déplacements necessaires
 			if(a[l]>0){
 				this.position.setPositionx(this.position.getPositionx()+1);
 			}else if (a[l]<0){
@@ -51,7 +57,7 @@ public class Lapin extends Neuneu{
 				this.position.setPositiony(this.position.getPositiony()-1);
 			}
 		}else{
-
+			// si le lapin n'a pas assez d'énergie, il se déplace de facon aleatoire à l arecherche d'énergie
 			int a= this.position.getPositionx();
 			int b= this.position.getPositiony();
 		
@@ -66,12 +72,10 @@ public class Lapin extends Neuneu{
 			
 			this.position.setPositionx(a);
 			this.position.setPositiony(b);
-			
 		}
-		
 	}
 		
-	
+	//TODO bug sur la methode manger ne gagne pas denergie?? a verifier
 	/**
 	 * 
 	 * @param nourriture
@@ -88,7 +92,9 @@ public class Lapin extends Neuneu{
 			System.out.println("Vous ne pouvez pas manger Áa!");
 		}		
 	}
-	
+	/**
+	 * Methode cycleDeVie() du lapin
+	 */
 	public void cycleDeVie() {
 		//Le Lapin commence par se dÈplacer
 		this.seDeplacer();
@@ -106,7 +112,11 @@ public class Lapin extends Neuneu{
 			}
 		}		
 	}
-
+	/**
+	 * Affichage graphique
+	 * les lapins sont représentés par des points roses
+	 * 
+	 */
 	@Override
 	public void dessinerObjet(Graphics g) {
 		int x = this.getPosition().getPositionx();

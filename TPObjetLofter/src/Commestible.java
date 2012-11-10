@@ -1,16 +1,27 @@
 /**
  * 1 oct. 2012
  * Commestible.java
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
- *
+ * Definiton d'une classe abstrait Commestible implementant l'interface ObjetDessinable
+ * @author bastien marichal-ragot & antoine veron
+ * @version 1.0
  */
 public abstract class Commestible implements ObjetDessinable{
-	public  void donneEnergie(Neuneu lofteur) {
+	/**
+	 * Methode abstraite donneEnergie
+	 * @param lofteur
+	 */
+	public void donneEnergie(Neuneu lofteur) {
 	}
-	
-	public int getEnergie(){return 0;}
+	/**
+	 * 
+	 * @return
+	 */
+	public int getEnergie(){
+		return 0;
+	}
 
 }

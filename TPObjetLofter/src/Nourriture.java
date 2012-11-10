@@ -4,20 +4,28 @@ import java.awt.Graphics;
 /**
  * 1 oct. 2012
  * Nourriture.java
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
- *
+ * Class Nourriture harite de la classe mere abstraite Commestible
+ * Definit les objets commestible "standard"
+ * @author bastien marichal-ragot & antoine veron
+ * @version 1.0
  */
 public  class Nourriture extends Commestible{
 	protected String nom;
 	protected int energie;
 	protected int X;
 	protected int Y;
+	//TODO pourquoi avoir mis X ET Y???
 	
+	/**
+	 * Constructeur avec aleatoire de nourriture
+	 * @param x
+	 * @param y
+	 */
 	public Nourriture(int x, int y){
-		//TODO constructeur random appel de l'enmeration
 		int a =(int) Math.random()*5;
 		
 		this.nom=Tartine.values()[a].getNom();
@@ -26,6 +34,15 @@ public  class Nourriture extends Commestible{
 		this.X=x;
 		this.Y=y;
 		
+	}
+	/**
+	 * Constructeur nominatif
+	 * @param nom
+	 * @param energie
+	 */
+	public Nourriture(String nom, int energie){
+		this.nom=nom;
+		this.energie=energie;
 	}
 	
 	/**
@@ -56,18 +73,16 @@ public  class Nourriture extends Commestible{
 		Y = y;
 	}
 
-	public Nourriture(String nom, int energie){
-		this.nom=nom;
-		this.energie=energie;
-	}
-
+	/**
+	 * implementation de la methode donneEnergie
+	 * Nourriture fournit de l'energie au lofteur
+	 */
 	public void donneEnergie(Neuneu lofteur) {
 		lofteur.setEnergie(lofteur.getEnergie()+ this.energie);
 		//this.energie=0; peut etre 
 		
 	}
 
-	
 	/**
 	 * @return the energie
 	 */
@@ -95,19 +110,12 @@ public  class Nourriture extends Commestible{
 	public void setEnergie(int energie) {
 		this.energie = energie;
 	}
-
+	/**
+	 * Affichage Graphique
+	 * l'affichage grphique de la nourriture est directement 
+	 * pris en compte dans l'affichage de la case
+	 */
 	@Override
 	public void dessinerObjet(Graphics g) {
-		// TODO Auto-generated method stub
-		// TODO bug on a pas la positon de la nourriture comment utiliser l'interface maintenant... ??
-		/*	int x = this.getX();
-			int y = this.getY();
-			int squaresize = ZoneGraphique.PIXEL_SIZE;
-			int squaregap = (int) Math.round(0.1 * (float) ZoneGraphique.PIXEL_SIZE);
-			g.setColor(Color.ORANGE);
-			g.fill3DRect(x * squaresize + squaregap, y * squaresize + squaregap, squaresize - 2 * squaregap, squaresize - 2 * squaregap, true);
-		*/
-
 	}
-
 }

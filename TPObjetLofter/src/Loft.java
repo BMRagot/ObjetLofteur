@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,11 +5,13 @@ import java.util.LinkedList;
 /**
  * 1 oct. 2012
  * Loft.java
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
- *
+ * Class Loft defninit le Loft et gere l'affichage graphique principal
+ * @author bastien marichal-ragot & antoine veron
+ * @version 1.0
  */
 public class Loft implements ObjetDessinable {
 	protected Case[][] terrain;
@@ -20,13 +21,12 @@ public class Loft implements ObjetDessinable {
 	protected ZoneGraphique zone;
 	
 	/**
-	 * 
+	 * Constructeur
 	 * @param l
 	 * @param h
 	 * @param POP
 	 * @param zone2 
 	 */
-	@SuppressWarnings("null")
 	public Loft(int l, int h, ArrayList<Neuneu> POP, ZoneGraphique zone2){		
 		this.population=POP;
 		this.largeur=l;
@@ -55,19 +55,20 @@ public class Loft implements ObjetDessinable {
 					Bouff.add(new Nourriture(i,j));
 				}
 				terrain[i][j]= new Case(i,j,Bouff);
-				for(Nourriture n:Bouff){
-					//zone.ajouterObjet(n);
-				}
 			}
 		}
 	}
 	
+	/**
+	 * Constructeur du loft a partir de sa population
+	 * @param POP
+	 */
 	public Loft(ArrayList<Neuneu> POP){
 		this.population=POP;
 	}
 	
-	
 	/**
+	 *  
 	 * @return the terrain
 	 */
 	public Case[][] getTerrain() {
@@ -129,16 +130,14 @@ public class Loft implements ObjetDessinable {
 	 */
 	public void ajouterNeuneu(Neuneu arrivant){
 		population.add(arrivant);
-		//zone.ajouterObjet(arrivant);
 	}
 	
 	/**
-	 * Mthods to remove Neuneu in loft
+	 * Methods to remove Neuneu in loft
 	 * @param partant
 	 */
 	public void supprimerNeuneu(Neuneu partant){
 		population.remove(partant);
-		//zone.supprimerObjet(partant);
 	}
 	
 	public void cycleDeVie(){
@@ -148,7 +147,7 @@ public class Loft implements ObjetDessinable {
 			int nb=this.population.size();
 			int i=0;
 			while(i<this.population.size()){
-				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à "+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
+				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à au "+ this.population.get(i).getRace()+":"+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
 				int x=this.population.get(i).getPosition().getPositionx();
 				int y= this.population.get(i).getPosition().getPositiony();
 				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
@@ -180,7 +179,6 @@ public class Loft implements ObjetDessinable {
 				this.dessinerObjet(zone.getGraphics());
 
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		//zone.repaint();
@@ -196,10 +194,12 @@ public class Loft implements ObjetDessinable {
 		System.out.println("cette saison a durŽ "+ nbJour +" jours!");
 		//TODO message de fin...
 	}
-
+	/**
+	 * Affichage graphique
+	 * Affichage de tous les objets du Loft ˆ chaque tour
+	 */
 	@Override
 	public void dessinerObjet(Graphics g) {
-		// TODO Auto-generated method stub
 		//zone.repaint();
 		
 		
