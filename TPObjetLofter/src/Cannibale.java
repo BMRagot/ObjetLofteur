@@ -30,13 +30,20 @@ public class Cannibale extends Vorace{
 			a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
 			b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
 			c[k]=a[k]*a[k]+b[k]*b[k];
-		
+			System.out.println("text ck :"+c[k]);
+
 		}
-		for(int k=0;k<this.environnement.getPopulation().size()-1;k++){	
-			if (c[k]!=0 &&  c[k]>c[k+1]){ //
-				l=k+1;
+		while(c[l]==0){
+			l=l+1;
+		}
+		for(int k=0;k<this.environnement.getPopulation().size();k++){	
+			if (c[k]!=0 &&  c[l]>c[k]){ //
+				l=k;
+				System.out.println("text ck "+c[k]);
 			}
 		}
+		System.out.println("text cl :"+c[l]);
+
 		if(a[l]>0){
 			this.position.setPositionx(this.position.getPositionx()+1);
 		}else if (a[l]<0){
@@ -67,7 +74,6 @@ public class Cannibale extends Vorace{
 		for(int i=0;i<max;i++){
 				this.position.getReserves().remove(effacer[i]);
 		}
-		System.out.println("test");
 
 		for(Neuneu n:this.environnement.getPopulation()){
 			//if(this.getPosition().compareTo(n.getPosition())){
