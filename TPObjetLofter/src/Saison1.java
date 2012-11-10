@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Saison1 {
 
-	public static int nombreLofteurs = 1;
+	public static int nombreLofteurs = 6;
 	public static int largeur= 30;
 	public static int hauteur= 30;
 	public static float proportionErratique = 0f;
-	public static float proportionVorace = 1f;
-	public static float proportionCannibale = 0f;
+	public static float proportionVorace = 0f;
+	public static float proportionCannibale = 1f;
 	public static float proportionLapin = 0f;
 
 	public ArrayList<Neuneu> pop;

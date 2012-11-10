@@ -153,10 +153,13 @@ public class Loft implements ObjetDessinable {
 				int y= this.population.get(i).getPosition().getPositiony();
 				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
 				System.out.println(this.population.get(i).getPosition().getEnergieTotale());
-
+				System.out.println(this.population.get(i).getEnvironnement().getPopulation().size());
+				//if (this.population.get(i))
+				
+				//Neuneu mem= new Neuneu(this.population.get(i));
 				this.population.get(i).cycleDeVie();
 				this.terrain[x][y].setReserves(this.population.get(i).getPosition().getReserves());
-
+				//this.population.get(i).getEnvironnement().setPopulation(this.population);
 				//this.terrain[x][y]=this.population.get(i).getPosition();
 				//this.setTerrain(this.population.get(i).getEnvironnement().getTerrain());
 				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
@@ -187,7 +190,7 @@ public class Loft implements ObjetDessinable {
 		}
 		for(int j=0;j<hauteur;j++){
 			for(int i=0; i<largeur; i++){
-				System.out.println(i +";"+ j +" ; " + this.getTerrain()[i][j].getEnergieTotale());
+				//System.out.println(i +";"+ j +" ; " + this.getTerrain()[i][j].getEnergieTotale());
 				
 			}}
 		System.out.println("cette saison a durŽ "+ nbJour +" jours!");
