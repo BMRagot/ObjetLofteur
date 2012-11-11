@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Saison1 {
 
-	public static int nombreLofteurs = 15;
+	public static int nombreLofteurs = 5;
 	public static int largeur= 30;
 	public static int hauteur= 30;
 	public static float proportionErratique = 0.3f;
@@ -34,22 +34,22 @@ public class Saison1 {
 		for (int i=0 ; i<nombreLofteurs ; i++) {
 			double x = Math.random();
 			if (x<proportionVorace) {
-				loft.ajouterNeuneu(new Vorace(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*29)][(int)(Math.random()*29)],loft));
+				loft.ajouterNeuneu(new Vorace(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*largeur)][(int)(Math.random()*hauteur)],loft));
 			}
 			else {
 				x -= proportionVorace;
 				if (x<proportionErratique) {
-					loft.ajouterNeuneu((new Erratique(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*29)][(int)(Math.random()*29)],loft)));
+					loft.ajouterNeuneu((new Erratique(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*largeur)][(int)(Math.random()*hauteur)],loft)));
 				}
 				else {
 					x -= proportionErratique;
 					if (x<proportionCannibale) {
-						loft.ajouterNeuneu(new Cannibale(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*29)][(int)(Math.random()*29)],loft));
+						loft.ajouterNeuneu(new Cannibale(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*largeur)][(int)(Math.random()*hauteur)],loft));
 					}
 					else{
 						x -= proportionCannibale;
 						if (x<proportionLapin) {
-							loft.ajouterNeuneu(new Lapin(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*29)][(int)(Math.random()*29)],loft));
+							loft.ajouterNeuneu(new Lapin(Name.values()[(int)(Math.random()*22)].getNom(), loft.getTerrain()[(int)(Math.random()*largeur)][(int)(Math.random()*hauteur)],loft));
 						}
 					}
 				}

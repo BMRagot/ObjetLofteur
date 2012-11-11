@@ -42,6 +42,11 @@ public class Case implements ObjetDessinable {
 		this.positiony=y;
 	}
 	
+	public Case(Case position) {
+		this.positionx=position.getPositionx();
+		this.positiony=position.getPositiony();
+		this.reserves=position.getReserves();
+	}
 	/**
 	 * getteur des reserves
 	 * @return the reserves
@@ -134,6 +139,7 @@ public class Case implements ObjetDessinable {
         int y = this.getPositiony();
         int squaresize = ZoneGraphique.PIXEL_SIZE;
         int squaregap = (int) Math.round(0.1 * (float) ZoneGraphique.PIXEL_SIZE);
+        g.setColor(Color.GRAY); 
         if(this.getEnergieTotale()>0){
         	g.setColor(Color.BLUE);
         }else{

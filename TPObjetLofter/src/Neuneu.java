@@ -106,6 +106,8 @@ public abstract class Neuneu extends Commestible{
        if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
 	    	this.setEnergie(this.getEnergie()-50);
 	        partenaire.setEnergie(partenaire.getEnergie()-50);
+	       
+			System.out.println(this.getNom() + "se reproduire avec " + partenaire.getNom());
 	        
 	        String nom = new String((this.getNom().substring(0, (int)(this.getNom().length()/2)))
 	        						+partenaire.getNom().substring((int)(partenaire.getNom().length()/2)));
@@ -125,20 +127,26 @@ public abstract class Neuneu extends Commestible{
 	        if (genome==0){
 	        	Neuneu nouveauNe= new Cannibale(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement); 
 	        	environnement.ajouterNeuneu(nouveauNe);
+				System.out.println(nouveauNe.getNom() + "est venu au monde!!");
+
 	        }
 	        else if(genome==1){
 	        	Neuneu nouveauNe= new Erratique(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
 	        	environnement.ajouterNeuneu(nouveauNe);
+				System.out.println(nouveauNe.getNom() + "est venu au monde!!");
+
 	        }
 	        else if(genome==2){
 	        	Neuneu nouveauNe= new Lapin(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
 	        	environnement.ajouterNeuneu(nouveauNe);
+				System.out.println(nouveauNe.getNom() + "est venu au monde!!");
+
 	        }
 	        else{
 	        	Neuneu nouveauNe= new Vorace(nom,this.getEnvironnement().getTerrain()[a][b],this.environnement);
 	        	environnement.ajouterNeuneu(nouveauNe);
+				System.out.println(nouveauNe.getNom() + "est venu au monde!!");
 	        }
-	        
 			
         }
     }

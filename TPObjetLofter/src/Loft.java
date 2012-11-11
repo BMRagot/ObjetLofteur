@@ -137,7 +137,9 @@ public class Loft implements ObjetDessinable {
 	 * @param partant
 	 */
 	public void supprimerNeuneu(Neuneu partant){
+		Case c= new Case(partant.getPosition());
 		population.remove(partant);
+		terrain[c.getPositionx()][c.getPositiony()]=c;
 	}
 	
 	/**
@@ -161,10 +163,12 @@ public class Loft implements ObjetDessinable {
 				//if (this.population.get(i))
 				
 				//Neuneu mem= new Neuneu(this.population.get(i));
-				
+				if (this.population.get(i).getEnergie()>0){
 				this.population.get(i).cycleDeVie();
+				}
 				if(i<this.population.size()) {
-				this.terrain[x][y].setReserves(this.population.get(i).getPosition().getReserves());
+					this.terrain[x][y].setReserves(this.population.get(i).getPosition().getReserves());
+					MC.update(nbJour, this,i);
 				}
 				//this.population.get(i).getEnvironnement().setPopulation(this.population);
 				//this.terrain[x][y]=this.population.get(i).getPosition();
@@ -172,7 +176,7 @@ public class Loft implements ObjetDessinable {
 				//System.out.println(this.getTerrain()[x][y].getEnergieTotale());
 
 				//TODO gros bug sur le trip, des neuneu meurent lors de leur cycle de vie?? bug un canniba se mange tout seul a coup sur!
-				MC.update(nbJour, this,i);
+				
 				i=i+1;
 				try {
 					Thread.sleep(250);
@@ -190,15 +194,10 @@ public class Loft implements ObjetDessinable {
 					i=i+1;
 				}
 			}
-			try {
-				Thread.sleep(10);
-				this.dessinerObjet(zone.getGraphics());
-
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		//zone.repaint();
 			
+		//zone.repaint();
+			this.dessinerObjet(zone.getGraphics());
+
 			//Graphics g = null;
 			nbJour=nbJour+1;
 		}
