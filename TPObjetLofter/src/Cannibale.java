@@ -25,36 +25,57 @@ public class Cannibale extends Vorace{
 	 * Il recherche le neuneu le plus proche de lui pour aller le dŽvorer
 	 */
 	public void seDeplacer(){
-		//on calcule la distance sŽparant le cannibale des autres neuneus
-		int[] a = new int[this.environnement.getPopulation().size()];
-		int[] b = new int[this.environnement.getPopulation().size()];
-		int[] c = new int[this.environnement.getPopulation().size()];
-		
-		for(int k=0;k<this.environnement.getPopulation().size();k++){
-			a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
-			b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
-			c[k]=a[k]*a[k]+b[k]*b[k];
-		}
-		//on sŽlectionne le plus proche
-		int l=0;
-		while(c[l]==0 && l<this.environnement.getPopulation().size()){
-			l=l+1;
-		}
-		for(int k=0;k<this.environnement.getPopulation().size();k++){	
-			if (c[k]!=0 &&  c[l]>c[k]){ //
-				l=k;
+		//S'il reste plus d'un neuneu, le cannibale chereche le neuneu le plus proche
+		if(this.environnement.getPopulation().size()>1)
+		{
+			//on calcule la distance sŽparant le cannibale des autres neuneus
+			int[] a = new int[this.environnement.getPopulation().size()];
+			int[] b = new int[this.environnement.getPopulation().size()];
+			int[] c = new int[this.environnement.getPopulation().size()];
+			
+			for(int k=0;k<this.environnement.getPopulation().size();k++){
+				a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
+				b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
+				c[k]=a[k]*a[k]+b[k]*b[k];
+			}
+			//on sŽlectionne le plus proche
+			int l=0;
+			while(c[l]==0 && l<this.environnement.getPopulation().size()){
+				l=l+1;
+			}
+			for(int k=0;k<this.environnement.getPopulation().size();k++){	
+				if (c[k]!=0 &&  c[l]>c[k]){ //
+					l=k;
+				}
+			}
+			// on definit les dŽplacements nŽcessaires pour l'atteindre
+			if(a[l]>0){
+				this.position.setPositionx(this.position.getPositionx()+1);
+			}else if (a[l]<0){
+				this.position.setPositionx(this.position.getPositionx()-1);
+			}
+			if(b[l]>0){
+				this.position.setPositiony(this.position.getPositiony()+1);
+			}else if( b[l]<0){
+				this.position.setPositiony(this.position.getPositiony()-1);
 			}
 		}
-		// on definit les dŽplacements nŽcessaires pour l'atteindre
-		if(a[l]>0){
-			this.position.setPositionx(this.position.getPositionx()+1);
-		}else if (a[l]<0){
-			this.position.setPositionx(this.position.getPositionx()-1);
-		}
-		if(b[l]>0){
-			this.position.setPositiony(this.position.getPositiony()+1);
-		}else if( b[l]<0){
-			this.position.setPositiony(this.position.getPositiony()-1);
+		//Sinon il se comporte comme un erratique
+		else {
+			int a= this.position.getPositionx();
+			int b= this.position.getPositiony();
+
+			a = a + (int)(Math.random() * (3)) - 1;
+			while (a<0 || a>this.environnement.largeur-1){
+				a = a + (int)(Math.random() * (3)) - 1;
+			}
+			b= b+(int)(Math.random() * (3)) - 1;
+			while(b<0 || b>this.environnement.hauteur-1){
+				b= b+(int)(Math.random() * (3)) - 1;
+			}
+			
+			this.position.setPositionx(a);
+			this.position.setPositiony(b);
 		}
 	}
 		

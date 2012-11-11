@@ -165,7 +165,7 @@ public class Loft implements ObjetDessinable {
 				this.population.get(i).cycleDeVie();
 				if(i<this.population.size()) {
 				this.terrain[x][y].setReserves(this.population.get(i).getPosition().getReserves());
-				};
+				}
 				//this.population.get(i).getEnvironnement().setPopulation(this.population);
 				//this.terrain[x][y]=this.population.get(i).getPosition();
 				//this.setTerrain(this.population.get(i).getEnvironnement().getTerrain());

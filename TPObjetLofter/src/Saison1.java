@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Saison1 {
 
-	public static int nombreLofteurs = 6;
+	public static int nombreLofteurs = 15;
 	public static int largeur= 30;
 	public static int hauteur= 30;
 	public static float proportionErratique = 0.3f;
