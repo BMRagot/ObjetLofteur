@@ -148,11 +148,11 @@ public class Loft implements ObjetDessinable {
 		MaConsole MC= new MaConsole(nbJour,this);
 		
 		while (!this.population.isEmpty()){
-			System.out.println("Il reste "+this.population.size()+" Neuneus!");
+			//System.out.println("Il reste "+this.population.size()+" Neuneus!");
 			int nb=this.population.size();
 			int i=0;
 			while(i<this.population.size()){
-				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à au "+ this.population.get(i).getRace()+":"+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
+				//System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à au "+ this.population.get(i).getRace()+":"+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
 				int x=this.population.get(i).getPosition().getPositionx();
 				int y= this.population.get(i).getPosition().getPositiony();
 				//System.out.println(this.getTerrain()[x][y].getEnergieTotale());
@@ -169,8 +169,15 @@ public class Loft implements ObjetDessinable {
 				//System.out.println(this.getTerrain()[x][y].getEnergieTotale());
 
 				//TODO gros bug sur le trip, des neuneu meurent lors de leur cycle de vie?? bug un canniba se mange tout seul a coup sur!
+				MC.update(nbJour, this,i);
 				i=i+1;
-				MC.update(nbJour, this);
+				try {
+					Thread.sleep(250);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 			i=0;
 			while (i<this.population.size()){
@@ -181,7 +188,7 @@ public class Loft implements ObjetDessinable {
 				}
 			}
 			try {
-				Thread.sleep(550);
+				Thread.sleep(10);
 				this.dessinerObjet(zone.getGraphics());
 
 			} catch (InterruptedException e) {

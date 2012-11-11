@@ -13,6 +13,13 @@ public class MaConsole extends JFrame {
 	private JLabel Texte5;
 	private JLabel Texte6;
 
+	private JLabel Texte7;
+	private JLabel Texte8;
+	private JLabel Texte9;
+	private JLabel Texte10;
+	private JLabel Texte11;
+	private JLabel Texte12;
+
 	
 	private Container contenu;
 
@@ -20,7 +27,7 @@ public class MaConsole extends JFrame {
 	public MaConsole(int NbJour, Loft l){
 		
 		setTitle("Mon Loft");
-		setBounds(0,0,200,200) ;
+		setBounds(0,0,250,250) ;
 		contenu = getContentPane(); 
 		contenu.setLayout(null);
 
@@ -67,12 +74,23 @@ public class MaConsole extends JFrame {
 		contenu.add(Texte6);
 		Texte6.setBounds(20, 110, 300, 30);
 		
+		Texte7=new JLabel("Tour: ");
+		contenu.add(Texte7);
+		Texte7.setBounds(20, 140, 300, 30);
+	
+		Texte8=new JLabel();
+		Texte9=new JLabel();
+		Texte10=new JLabel();
+		contenu.add(Texte8);
+		contenu.add(Texte9);
+		contenu.add(Texte10);
+		
 		contenu.validate();
 		
 		this.setVisible(true);
 	}
 	
-	public void update(int NbJour, Loft l){
+	public void update(int NbJour, Loft l,int i){
 		
 		contenu.remove(Texte1);
 		contenu.remove(Texte2);
@@ -80,6 +98,9 @@ public class MaConsole extends JFrame {
 		contenu.remove(Texte4);
 		contenu.remove(Texte5);
 		contenu.remove(Texte6);
+		contenu.remove(Texte8);
+		contenu.remove(Texte9);
+		contenu.remove(Texte10);
 		
 		
 		
@@ -125,7 +146,17 @@ public class MaConsole extends JFrame {
 		contenu.add(Texte6);
 		Texte6.setBounds(20, 110, 300, 30);
 		
+		Texte8=new JLabel("Le " + l.getPopulation().get(i).getRace() + ", "+ l.getPopulation().get(i).getNom() + " joue :");
+		contenu.add(Texte8);
+		Texte8.setBounds(30, 160, 300, 30);
 		
+		Texte9=new JLabel("Position : X: " + l.getPopulation().get(i).getPosition().getPositionx() +" ; Y: "+l.getPopulation().get(i).getPosition().getPositiony());
+		contenu.add(Texte9);
+		Texte9.setBounds(40, 180, 300, 30);
+		
+		Texte10=new JLabel("Energie: "+ l.getPopulation().get(i).getEnergie());
+		contenu.add(Texte10);
+		Texte10.setBounds(40, 200, 300, 30);
 		
 		
 		

@@ -10,7 +10,29 @@
  */
 public enum Name {
 
-	ANTOINE("antoine"), GAETAN("gaetan"), ROBERT("robert"), RICHARD("richard"), GINETTE("ginette");
+	ANTOINE("antoine"), 
+	GAETAN("gaetan"), 
+	ROBERT("robert"), 
+	RICHARD("richard"), 
+	GINETTE("ginette"),
+	ANAIRE("anaire"),
+	ARACANO("Arac‡no"),
+	ARAFINWE("Arafinw‘"), 
+	ARANWE("Aranw‘"), 
+	ARTAHER("Artaher"), 
+	ARTANIS("Artanis"), 
+	AULENDI("Aulendil"), 
+	AULENDUR("Aulendur"), 
+	CURUFINWE("Curufinw‘"), 
+	EARXWEN("EŠrwen"), 
+	ELDALOTE("Eldal—t‘"), 
+	ELEMMACIL("Elemmacil"), 
+	ELEMIRE("Elemm’re"), 
+	ELENWE("Elenw‘"), 
+	FEANARO("F‘an‡ro"), 
+	FINDAMBAR("Findambar"), 
+	FINDECANO("Findec‡no");
+	
 	
 	private String nom;
 	/**
