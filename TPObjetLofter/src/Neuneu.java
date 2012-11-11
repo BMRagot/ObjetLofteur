@@ -32,7 +32,7 @@ public abstract class Neuneu extends Commestible{
         this.energie=100;
     }
     
-    //MÃ©thodes
+    //MÃƒÂ©thodes
 
     /**
      * @return l'energie d'un neuneu
@@ -42,7 +42,7 @@ public abstract class Neuneu extends Commestible{
     }
     /**
      * 
-     * @param energie ˆ donner au neuneu
+     * @param energie Ë† donner au neuneu
      */
     public void setEnergie(int energie) {
         this.energie = energie;
@@ -70,7 +70,7 @@ public abstract class Neuneu extends Commestible{
     }
     /**
      * 
-     * @param nom ˆ donner au neuneu
+     * @param nom Ë† donner au neuneu
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -84,13 +84,13 @@ public abstract class Neuneu extends Commestible{
     }
     /**
      * 
-     * @param position o placer ce neuneu
+     * @param position oï¿½ placer ce neuneu
      */
     public void setPosition(Case position) {
         this.position = position;
     }
     /**
-     * mthode abstraite definit dans les classes filles pour le deplacement des neuneus
+     * mÅ½thode abstraite definit dans les classes filles pour le deplacement des neuneus
      */
     public abstract void seDeplacer();
     /**
@@ -103,7 +103,7 @@ public abstract class Neuneu extends Commestible{
      * @param partenaire avec qui se reproduire
      */
     public void seReproduire(Neuneu partenaire){
-       /* if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
+       if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
 	    	this.setEnergie(this.getEnergie()-50);
 	        partenaire.setEnergie(partenaire.getEnergie()-50);
 	        
@@ -140,7 +140,7 @@ public abstract class Neuneu extends Commestible{
 	        }
 	        
 			
-        }*/
+        }
     }
     /**
      * methode de transfert d'energie

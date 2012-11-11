@@ -40,7 +40,7 @@ public class Cannibale extends Vorace{
 			}
 			//on sŽlectionne le plus proche
 			int l=0;
-			while(c[l]==0 && l<this.environnement.getPopulation().size()){
+			while(l<this.environnement.getPopulation().size() && c[l]==0){
 				l=l+1;
 			}
 			for(int k=0;k<this.environnement.getPopulation().size();k++){	
