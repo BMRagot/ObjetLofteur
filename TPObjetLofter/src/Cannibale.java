@@ -4,13 +4,13 @@ import java.awt.Graphics;
 /**
  * 1 oct. 2012
  * Cannibale.java
- * @author bastien marichal-ragot & antoine véron
+ * @author bastien marichal-ragot & antoine v≈Ωron
  */
 
 /**
- * Classe Cannibale hérite de la classe Vorace. Definit les Neuneu de type Cannibale 
- * se nourrissant en priorité des autres neuneus
- * @author bastien marichal-ragot & antoine véron 
+ * Classe Cannibale h≈Ωrite de la classe Vorace. Definit les Neuneu de type Cannibale 
+ * se nourrissant en priorit≈Ω des autres neuneus
+ * @author bastien marichal-ragot & antoine v≈Ωron 
  * @version 1.0
  */
 public class Cannibale extends Vorace{
@@ -21,52 +21,73 @@ public class Cannibale extends Vorace{
 	}
 	
 	/**
-	 * Méthode seDeplacer() definit le déplacement des cannibales
-	 * Il recherche le neuneu le plus proche de lui pour aller le dévorer
+	 * M≈Ωthode seDeplacer() definit le d≈Ωplacement des cannibales
+	 * Il recherche le neuneu le plus proche de lui pour aller le d≈Ωvorer
 	 */
 	public void seDeplacer(){
-		//on calcule la distance séparant le cannibale des autres neuneus
-		int[] a = new int[this.environnement.getPopulation().size()];
-		int[] b = new int[this.environnement.getPopulation().size()];
-		int[] c = new int[this.environnement.getPopulation().size()];
-		
-		for(int k=0;k<this.environnement.getPopulation().size();k++){
-			a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
-			b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
-			c[k]=a[k]*a[k]+b[k]*b[k];
-		}
-		//on sélectionne le plus proche
-		int l=0;
-		while(c[l]==0){
-			l=l+1;
-		}
-		for(int k=0;k<this.environnement.getPopulation().size();k++){	
-			if (c[k]!=0 &&  c[l]>c[k]){ //
-				l=k;
+		//S'il reste plus d'un neuneu, le cannibale chereche le neuneu le plus proche
+		if(this.environnement.getPopulation().size()>1)
+		{
+			//on calcule la distance s≈Ωparant le cannibale des autres neuneus
+			int[] a = new int[this.environnement.getPopulation().size()];
+			int[] b = new int[this.environnement.getPopulation().size()];
+			int[] c = new int[this.environnement.getPopulation().size()];
+			
+			for(int k=0;k<this.environnement.getPopulation().size();k++){
+				a[k]=this.environnement.getPopulation().get(k).getPosition().getPositionx()-this.position.getPositionx();
+				b[k]=this.environnement.getPopulation().get(k).getPosition().getPositiony()-this.position.getPositiony();
+				c[k]=a[k]*a[k]+b[k]*b[k];
+			}
+			//on s≈Ωlectionne le plus proche
+			int l=0;
+			while(l<this.environnement.getPopulation().size() && c[l]==0){
+				l=l+1;
+			}
+			for(int k=0;k<this.environnement.getPopulation().size();k++){	
+				if (c[k]!=0 &&  c[l]>c[k]){ //
+					l=k;
+				}
+			}
+			// on definit les d≈Ωplacements n≈Ωcessaires pour l'atteindre
+			if(a[l]>0){
+				this.position.setPositionx(this.position.getPositionx()+1);
+			}else if (a[l]<0){
+				this.position.setPositionx(this.position.getPositionx()-1);
+			}
+			if(b[l]>0){
+				this.position.setPositiony(this.position.getPositiony()+1);
+			}else if( b[l]<0){
+				this.position.setPositiony(this.position.getPositiony()-1);
 			}
 		}
-		// on definit les déplacements nécessaires pour l'atteindre
-		if(a[l]>0){
-			this.position.setPositionx(this.position.getPositionx()+1);
-		}else if (a[l]<0){
-			this.position.setPositionx(this.position.getPositionx()-1);
-		}
-		if(b[l]>0){
-			this.position.setPositiony(this.position.getPositiony()+1);
-		}else if( b[l]<0){
-			this.position.setPositiony(this.position.getPositiony()-1);
+		//Sinon il se comporte comme un erratique
+		else {
+			int a= this.position.getPositionx();
+			int b= this.position.getPositiony();
+
+			a = a + (int)(Math.random() * (3)) - 1;
+			while (a<0 || a>this.environnement.largeur-1){
+				a = a + (int)(Math.random() * (3)) - 1;
+			}
+			b= b+(int)(Math.random() * (3)) - 1;
+			while(b<0 || b>this.environnement.hauteur-1){
+				b= b+(int)(Math.random() * (3)) - 1;
+			}
+			
+			this.position.setPositionx(a);
+			this.position.setPositiony(b);
 		}
 	}
 		
 
 	/**
-	 * Methode manger() surchage de la methode héritée de Vorace
+	 * Methode manger() surchage de la methode h≈Ωrit≈Ωe de Vorace
 	 * @see Vorace#manger(Commestible)
 	 * @param Commestible
 	 */
 	@Override
 	public void manger(Commestible nourriture) {
-		//un cannibale peut manger de la nourriture standard de façon aléatoire s'il en trouve
+		//un cannibale peut manger de la nourriture standard de faÔøΩon al≈Ωatoire s'il en trouve
 		int max=this.position.getReserves().size();
 		Nourriture[] effacer= new Nourriture[max];
 		for (int i=0; i<max;i++){
@@ -84,7 +105,7 @@ public class Cannibale extends Vorace{
 			if(this.position.getPositionx()==n.getPosition().getPositionx() && this.position.getPositiony()==n.getPosition().getPositiony() && !this.equals(n)){	
 				n.donneEnergie(this);
 				this.environnement.supprimerNeuneu(n);
-				System.out.println(this.getNom()+" dévore " +n.getNom());
+				System.out.println(this.getNom()+" d≈Ωvore " +n.getNom());
 				break;
 			}
 		}		
@@ -92,14 +113,14 @@ public class Cannibale extends Vorace{
 
 	/**
 	 * Methode cycleDeVie() definition de la classe abstract Neuneu
-	 * definit le cycle de vie du cannibale privilégieant la chasse
+	 * definit le cycle de vie du cannibale privil≈Ωgieant la chasse
 	 */
 	public void cycleDeVie() {
 		// se deplace en direction de sa cible
 		this.seDeplacer();
-		// perd de l'energie du a déplacement
+		// perd de l'energie du a d≈Ωplacement
 		this.setEnergie(this.getEnergie()-2);
-		//dévore un neuneu ou se nourri normalement
+		//d≈Ωvore un neuneu ou se nourri normalement
 		this.manger(new Nourriture("n", 0));
 		// se reproduit 
 		for(Neuneu n:this.getEnvironnement().getPopulation()){
@@ -113,7 +134,7 @@ public class Cannibale extends Vorace{
 	
 	/**
 	 * Affichage graphique
-	 * les cannibales sont visualisés par des points verts.
+	 * les cannibales sont visualis≈Ωs par des points verts.
 	 * @see Erratique#dessinerObjet(java.awt.Graphics)
 	 */
 	@Override

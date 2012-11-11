@@ -19,13 +19,13 @@ public class Lapin extends Neuneu{
 	}
 	
 	/**
-	 * Methode de deplacement du lapin qui ne cherche qu'à courir après un partenaire sexuel
+	 * Methode de deplacement du lapin qui ne cherche qu'ÀÜ courir aprÔøΩs un partenaire sexuel
 	 * @see Neuneu#seDeplacer()
 	 */
 	public void seDeplacer(){		
-		// si le lapin possede suffisament d'energie pour se reproduire alors il par à la recherche d'un partenaire
+		// si le lapin possede suffisament d'energie pour se reproduire alors il par ÀÜ la recherche d'un partenaire
 		if( this.energie>50 && this.environnement.getPopulation().size()>1){
-			//calcul des distance séparant les lapins des autres neuneu
+			//calcul des distance s≈Ωparant les lapins des autres neuneu
 			int[] a = new int[this.environnement.getPopulation().size()];;
 			int[] b = new int[this.environnement.getPopulation().size()];;
 			int[] c = new int[this.environnement.getPopulation().size()];;
@@ -37,7 +37,7 @@ public class Lapin extends Neuneu{
 			}
 			//selection du partenaire le plus proche
 			int l=0;
-			while(c[l]==0 && l<this.environnement.getPopulation().size()){
+			while(l<this.environnement.getPopulation().size() && c[l]==0){
 				l=l+1;
 			}
 			for(int k=0;k<this.environnement.getPopulation().size();k++){	
@@ -45,7 +45,7 @@ public class Lapin extends Neuneu{
 					l=k;
 				}
 			}
-			// calcul des déplacements necessaires
+			// calcul des d≈Ωplacements necessaires
 			if(a[l]>0){
 				this.position.setPositionx(this.position.getPositionx()+1);
 			}else if (a[l]<0){
@@ -57,7 +57,7 @@ public class Lapin extends Neuneu{
 				this.position.setPositiony(this.position.getPositiony()-1);
 			}
 		}else{
-			// si le lapin n'a pas assez d'énergie, il se déplace de facon aleatoire à l arecherche d'énergie
+			// si le lapin n'a pas assez d'≈Ωnergie, il se d≈Ωplace de facon aleatoire ÀÜ l arecherche d'≈Ωnergie
 			int a= this.position.getPositionx();
 			int b= this.position.getPositiony();
 		
@@ -89,18 +89,18 @@ public class Lapin extends Neuneu{
 		}
 		
 		else {
-			System.out.println("Vous ne pouvez pas manger Áa!");
+			System.out.println("Vous ne pouvez pas manger √ßa!");
 		}		
 	}
 	/**
 	 * Methode cycleDeVie() du lapin
 	 */
 	public void cycleDeVie() {
-		//Le Lapin commence par se dÈplacer
+		//Le Lapin commence par se d√©placer
 		this.seDeplacer();
 		this.setEnergie(this.getEnergie()-2);
 		
-		//Si de la nourriture est prÈsente sur la case, il mange le premier item
+		//Si de la nourriture est pr√©sente sur la case, il mange le premier item
 		if(this.getPosition().getReserves().size()!=0){
 			this.manger(this.getPosition().getReserves().getFirst());
 		}
@@ -114,7 +114,7 @@ public class Lapin extends Neuneu{
 	}
 	/**
 	 * Affichage graphique
-	 * les lapins sont représentés par des points roses
+	 * les lapins sont repr≈Ωsent≈Ωs par des points roses
 	 * 
 	 */
 	@Override

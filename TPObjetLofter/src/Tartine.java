@@ -3,7 +3,7 @@
  */
 
 /**
- * Enumertion tartine contient l'ensemble des items de nourriture
+ * Enumeration tartine contient l'ensemble des items de nourriture
  * @author bastien marichal-ragot & antoine veron
  *
  */
