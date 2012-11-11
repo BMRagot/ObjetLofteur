@@ -140,6 +140,9 @@ public class Loft implements ObjetDessinable {
 		population.remove(partant);
 	}
 	
+	/**
+	 *Definition du ccle de vie global du loft 
+	 */
 	public void cycleDeVie(){
 		int nbJour=0;
 		while (!this.population.isEmpty()){
@@ -200,24 +203,16 @@ public class Loft implements ObjetDessinable {
 	 */
 	@Override
 	public void dessinerObjet(Graphics g) {
-		//zone.repaint();
-		
-		
-		zone.removeAll();
+
 		for(int j=0;j<hauteur;j++){
 			for(int i=0; i<largeur; i++){
 				this.terrain[i][j].dessinerObjet(g);
-				//for(Nourriture n:terrain[i][j].getReserves()){
-					//n.dessinerObjet(g);
-				//}
 			}	
 		}
 		for(Neuneu lofter:this.population){
 			lofter.dessinerObjet(g);
 		}
-		//zone.validate();
-		zone.repaint();
-		zone.update(g);
-		//zone.paintAll(g);
+		zone.validate();
+	
 	}
 }

@@ -1,28 +1,35 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.LinkedList;
 
 /**
  * 1 oct. 2012
  * Vorace.java
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
+ * Classe Vorace herite de la classe mere Erratique
+ * @author bastien marichal-ragot & antoine veron
  *
  */
 public class Vorace extends Erratique{
-
+	/**
+	 * Constructeur
+	 * @param nom
+	 * @param position
+	 * @param environnement
+	 */
 	public Vorace(String nom, Case position, Loft environnement) {
 		super(nom, position, environnement);
 		this.type="Vorace";
 	}
 	
 	/**
-	 * 
+	 * Methode seDeplacer() redefinit le deplacement des voraces
+	 * se deplace en direction de la case possedant les plus grandes reserves de nourriture
 	 */
 	public void seDeplacer(){
-		//TODO proivilegier le type de nourriture (alcool)
+
 		int a = 1;
 		int b = 1;
 
@@ -48,12 +55,12 @@ public class Vorace extends Erratique{
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * 
 	 * @see Erratique#manger(Commestible)
 	 */
 	@Override
 	public void manger(Commestible nourriture) {
-		//super.manger(nourriture);
 		for(Nourriture manger:this.position.getReserves()){
 			manger.donneEnergie(this);
 		}
@@ -61,7 +68,9 @@ public class Vorace extends Erratique{
 		this.position.reserves.clear();
 	}
 
-	/* (non-Javadoc)
+	/**
+	 * affichage Graphique
+	 * les voraces sont rerésetés par des points jaunes
 	 * @see Erratique#dessinerObjet(java.awt.Graphics)
 	 */
 	@Override

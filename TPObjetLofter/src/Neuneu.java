@@ -1,10 +1,13 @@
 /**
  * 1 oct. 2012
  * Neuneu.java
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
+ * Classe abstraite Neuneu herite de Commestible
+ * 
+ * @author bastien marichal-ragot & antoine veron
  *
  */
 public abstract class Neuneu extends Commestible{
@@ -32,44 +35,73 @@ public abstract class Neuneu extends Commestible{
     //MÃ©thodes
 
     /**
-     * @return
+     * @return l'energie d'un neuneu
      */
     public int getEnergie() {
         return energie;
     }
-
+    /**
+     * 
+     * @param energie ˆ donner au neuneu
+     */
     public void setEnergie(int energie) {
         this.energie = energie;
     }
-
+    /**
+     * 
+     * @return retourne l'environnement du lofteur
+     */
     public Loft getEnvironnement() {
         return environnement;
     }
-
+    /**
+     * 
+     * @param environnement
+     */
     public void setEnvironnement(Loft environnement) {
         this.environnement = environnement;
     }
-
+    /**
+     * 
+     * @return nom du neuneu
+     */
     public String getNom() {
         return nom;
     }
-
+    /**
+     * 
+     * @param nom ˆ donner au neuneu
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
-
+    /**
+     * 
+     * @return la case ou se situe ce neuneu
+     */
     public Case getPosition() {
         return position;
     }
-
+    /**
+     * 
+     * @param position o placer ce neuneu
+     */
     public void setPosition(Case position) {
         this.position = position;
     }
-    
+    /**
+     * mŽthode abstraite definit dans les classes filles pour le deplacement des neuneus
+     */
     public abstract void seDeplacer();
-    
+    /**
+     * methode abstraite definit dans les classes filles pour l'alimentation des neuneus
+     * @param nourriture
+     */
     public abstract void manger(Commestible nourriture);
-    
+    /**
+     * methode de reproduction des neuneus
+     * @param partenaire avec qui se reproduire
+     */
     public void seReproduire(Neuneu partenaire){
        /* if ((this.getEnergie()>50)&&(partenaire.getEnergie()>50)){
 	    	this.setEnergie(this.getEnergie()-50);
@@ -110,15 +142,22 @@ public abstract class Neuneu extends Commestible{
 			
         }*/
     }
-    
+    /**
+     * methode de transfert d'energie
+     */
     public void donneEnergie(Neuneu lofteur){
 		lofteur.setEnergie(lofteur.getEnergie()+ this.getEnergie());
     }
-    
+    /**
+     * methode de cycleDeVie
+     */
     public void cycleDeVie(){
     	
     }
-    
+    /**
+     * methode qui renvoie la race de neuneu
+     * @return la race du neuneu
+     */
     public String getRace(){
 		return type;
     	

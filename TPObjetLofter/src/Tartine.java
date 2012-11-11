@@ -1,9 +1,10 @@
 /**
- * 
+ * @author bastien marichal-ragot & antoine veron
  */
 
 /**
- * @author bastienmarichalragot
+ * Enumertion tartine contient l'ensemble des items de nourriture
+ * @author bastien marichal-ragot & antoine veron
  *
  */
 public enum Tartine {
@@ -12,16 +13,26 @@ public enum Tartine {
 		 
 		 private String nom;
 		 private int energie;
-		 
+		 /**
+		  * Constructeur
+		  * @param n
+		  * @param c
+		  */
 		 private Tartine(String n,int c) {
 		   energie = c;
 		   nom=n;
 		 }
-		 
+		 /**
+		  * 
+		  * @return energie de l'item
+		  */
 		 public int getEnergie() {
 		   return energie;
 		 }
-		 
+		 /**
+		  * 
+		  * @return le nom de l'item
+		  */
 		 public String getNom(){
 			 return nom;
 		 }
