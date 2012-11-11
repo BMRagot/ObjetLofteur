@@ -145,6 +145,8 @@ public class Loft implements ObjetDessinable {
 	 */
 	public void cycleDeVie(){
 		int nbJour=0;
+		MaConsole MC= new MaConsole(nbJour,this);
+		
 		while (!this.population.isEmpty()){
 			System.out.println("Il reste "+this.population.size()+" Neuneus!");
 			int nb=this.population.size();
@@ -153,9 +155,9 @@ public class Loft implements ObjetDessinable {
 				System.out.println("Il reste "+this.population.get(i).getEnergie()+" d'énergie à au "+ this.population.get(i).getRace()+":"+this.population.get(i).getNom()+" !"+this.population.get(i).getPosition().getPositionx());
 				int x=this.population.get(i).getPosition().getPositionx();
 				int y= this.population.get(i).getPosition().getPositiony();
-				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
-				System.out.println(this.population.get(i).getPosition().getEnergieTotale());
-				System.out.println(this.population.get(i).getEnvironnement().getPopulation().size());
+				//System.out.println(this.getTerrain()[x][y].getEnergieTotale());
+				//System.out.println(this.population.get(i).getPosition().getEnergieTotale());
+				//System.out.println(this.population.get(i).getEnvironnement().getPopulation().size());
 				//if (this.population.get(i))
 				
 				//Neuneu mem= new Neuneu(this.population.get(i));
@@ -164,10 +166,11 @@ public class Loft implements ObjetDessinable {
 				//this.population.get(i).getEnvironnement().setPopulation(this.population);
 				//this.terrain[x][y]=this.population.get(i).getPosition();
 				//this.setTerrain(this.population.get(i).getEnvironnement().getTerrain());
-				System.out.println(this.getTerrain()[x][y].getEnergieTotale());
+				//System.out.println(this.getTerrain()[x][y].getEnergieTotale());
 
 				//TODO gros bug sur le trip, des neuneu meurent lors de leur cycle de vie?? bug un canniba se mange tout seul a coup sur!
 				i=i+1;
+				MC.update(nbJour, this);
 			}
 			i=0;
 			while (i<this.population.size()){

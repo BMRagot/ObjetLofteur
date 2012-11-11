@@ -15,7 +15,7 @@ public class Erratique extends Neuneu{
 
 	public Erratique(String nom, Case position, Loft environnement) {
 		super(nom, position, environnement);
-		this.type="erratique";
+		this.type="Erratique";
 }
 	public void seDeplacer(){
 		
